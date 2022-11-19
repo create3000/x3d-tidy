@@ -1,0 +1,28 @@
+{
+   "name": "x3d-tidy",
+   "version": "1.0.0",
+   "description": "X3D Beautifier and Minimizer",
+   "main": "index.js",
+   "bin": {
+      "x3d-tidy": "bin/x3d-tidy.js"
+   },
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/create3000/x3d-tidy.git"
+   },
+   "keywords": [
+      "X3D",
+      "minimizer",
+      "beautifier",
+      "tidy"
+   ],
+   "author": "Holger Seelig",
+   "license": "GPL",
+   "bugs": {
+      "url": "https://github.com/create3000/x3d-tidy/issues"
+   },
+   "homepage": "https://github.com/create3000/x3d-tidy#readme"
+}
