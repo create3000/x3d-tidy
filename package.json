@@ -20,7 +20,7 @@
       "tidy"
    ],
    "author": "Holger Seelig",
-   "license": "GPL",
+   "license": "GPL-3.0",
    "bugs": {
       "url": "https://github.com/create3000/x3d-tidy/issues"
    },
