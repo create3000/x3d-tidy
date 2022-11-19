@@ -24,5 +24,8 @@
    "bugs": {
       "url": "https://github.com/create3000/x3d-tidy/issues"
    },
-   "homepage": "https://github.com/create3000/x3d-tidy#readme"
+   "homepage": "https://github.com/create3000/x3d-tidy#readme",
+   "devDependencies": {
+      "x_ite": "^6.1.0"
+   }
 }
