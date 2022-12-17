@@ -52,7 +52,10 @@ async function convert (args)
    {
       const output = path .resolve (process .cwd (), argv .output)
 
-      fs .writeFileSync (output, getContents (Browser .currentScene, path .extname (output)))
+      if (path .extname (output))
+         fs .writeFileSync (output, getContents (Browser .currentScene, path .extname (output)))
+      else
+         process .stdout .write (getContents (Browser .currentScene, path .basename (output)))
    }
    else
    {
@@ -78,4 +81,10 @@ function getContents (scene, type)
       case ".x3djz":
          return zlib .gzipSync (scene .toJSONString ())
    }
+}
+
+function say (string)
+{
+   process .stdout .write (string)
+   process .stdout .write ("\n")
 }
