@@ -5,7 +5,7 @@
    "bin": {
       "x3d-tidy": "bin/x3d-tidy.js"
    },
-   "main": "bin/x3d-tidy.js",
+   "main": "src/x3d-tidy.js",
    "scripts": {
       "start": "electron .",
       "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,6 +28,7 @@
    "homepage": "https://github.com/create3000/x3d-tidy#readme",
    "devDependencies": {
       "electron": "^22.0.0",
-      "x_ite": "^6.1.0"
+      "x_ite": "^8.3.0",
+      "yargs": "^17.6.2"
    }
 }
