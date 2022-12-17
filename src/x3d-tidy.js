@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const
    electron = require ("electron"),
-   fs       = require ("fs"),
    path     = require ("path")
 
 process .env .ELECTRON_DISABLE_SECURITY_WARNINGS = "true"

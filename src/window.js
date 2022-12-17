@@ -33,6 +33,8 @@ window .addEventListener ("DOMContentLoaded", () =>
             Browser = X3D .createBrowser () .browser,
             input   = path .resolve (process .cwd (), argv .input)
 
+         Browser .endUpdate ()
+
          await Browser .loadURL (new X3D .MFString (input))
 
          if (argv .output)
