@@ -24,7 +24,7 @@ async function main (argv)
 
 async function convert (argv)
 {
-   const args = yargs (argv) .command ("x3d-tidy", "X3D converter and beautifier")
+   const args = yargs (argv) .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
    .fail ((msg, error, yargs) =>
    {
       process .stderr .write (msg)
