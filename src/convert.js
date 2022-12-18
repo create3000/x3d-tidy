@@ -7,8 +7,8 @@ const
    zlib     = require ("zlib")
 
 process .exit  = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
-console .log   = log .bind (process .stdout)
-console .error = log .bind (process .stderr)
+console .log   = (s = "") => process .stdout .write (s + "\n")
+console .error = (s = "") => process .stderr .write (s + "\n")
 
 electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
 
@@ -91,10 +91,4 @@ function getContents (scene, type)
       case ".x3djz":
          return zlib .gzipSync (scene .toJSONString ())
    }
-}
-
-function log (string = "")
-{
-   this .write (string)
-   this .write ("\n")
 }
