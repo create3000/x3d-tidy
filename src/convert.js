@@ -6,7 +6,9 @@ const
    fs       = require ("fs"),
    zlib     = require ("zlib")
 
-process .exit = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
+process .exit  = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
+console .log   = log .bind (process .stdout)
+console .error = log .bind (process .stderr)
 
 electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
 
@@ -30,9 +32,6 @@ async function convert (argv)
    .fail ((msg, error, yargs) =>
    {
       process .stderr .write (msg)
-      process .stderr .write ("\n")
-      process .stderr .write (yargs .help ())
-      process .stderr .write ("\n")
       process .exit (1)
    })
    .option ("input",
@@ -94,8 +93,8 @@ function getContents (scene, type)
    }
 }
 
-function say (string)
+function log (string = "")
 {
-   process .stdout .write (string)
-   process .stdout .write ("\n")
+   this .write (string)
+   this .write ("\n")
 }
