@@ -2,5 +2,5 @@
 
 window .addEventListener ("DOMContentLoaded", () =>
 {
-   require ("./application")
+   require ("./convert")
 })

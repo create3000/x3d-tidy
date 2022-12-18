@@ -6,13 +6,15 @@ const
    fs       = require ("fs"),
    zlib     = require ("zlib")
 
-electron .ipcRenderer .on ("convert", async (event, args) => main (args))
+process .exit = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
 
-async function main (args)
+electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
+
+async function main (argv)
 {
    try
    {
-      await convert (args)
+      await convert (argv)
 
       electron .ipcRenderer .send ("ready")
    }
@@ -22,35 +24,44 @@ async function main (args)
    }
 }
 
-async function convert (args)
+async function convert (argv)
 {
-   const argv = yargs (args) .command ("x3d-tidy", "X3D converter and beautifier")
+   const args = yargs (argv) .command ("x3d-tidy", "X3D converter and beautifier")
+   .fail ((msg, error, yargs) =>
+   {
+      process .stderr .write (msg)
+      process .stderr .write ("\n")
+      process .stderr .write (yargs .help ())
+      process .stderr .write ("\n")
+      process .exit (1)
+   })
    .option ("input",
    {
       alias: "i",
       description: "Input filename",
-      type: "string"
+      type: "string",
+      demandOption: true,
    })
    .option ("output",
    {
       alias: "o",
       description: "Output filename",
-      type: "string"
+      type: "string",
    })
    .help ()
    .alias ("help", "h") .argv;
 
    const
       Browser = X3D .createBrowser () .browser,
-      input   = path .resolve (process .cwd (), argv .input)
+      input   = path .resolve (process .cwd (), args .input)
 
    Browser .endUpdate ()
 
    await Browser .loadURL (new X3D .MFString (input))
 
-   if (argv .output)
+   if (args .output)
    {
-      const output = path .resolve (process .cwd (), argv .output)
+      const output = path .resolve (process .cwd (), args .output)
 
       if (path .extname (output))
          fs .writeFileSync (output, getContents (Browser .currentScene, path .extname (output)))
