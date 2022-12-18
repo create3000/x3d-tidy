@@ -6,10 +6,6 @@ const
    fs       = require ("fs"),
    zlib     = require ("zlib")
 
-process .exit  = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
-console .log   = (s = "") => process .stdout .write (s + "\n")
-console .error = (s = "") => process .stderr .write (s + "\n")
-
 electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
 
 async function main (argv)
@@ -92,3 +88,7 @@ function getContents (scene, type)
          return zlib .gzipSync (scene .toJSONString ())
    }
 }
+
+process .exit  = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
+console .log   = (s = "") => process .stdout .write (s + "\n")
+console .error = (s = "") => process .stderr .write (s + "\n")
