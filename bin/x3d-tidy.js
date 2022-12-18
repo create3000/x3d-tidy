@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+const path = require ("path")
 const { execFile } = require ("child_process")
 
-execFile ("electron", [".", ... process .argv], (error, stdout, stderr) =>
+execFile ("electron", [path .resolve (__dirname, ".."), ... process .argv], (error, stdout, stderr) =>
 {
    if (error)
    {

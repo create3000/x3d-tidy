@@ -1,6 +1,6 @@
 {
    "name": "x3d-tidy",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "description": "X3D Converter, Beautifier and Minimizer",
    "bin": {
       "x3d-tidy": "bin/x3d-tidy.js"
@@ -16,6 +16,7 @@
    },
    "keywords": [
       "X3D",
+      "converter",
       "minimizer",
       "beautifier",
       "tidy"
@@ -26,7 +27,7 @@
       "url": "https://github.com/create3000/x3d-tidy/issues"
    },
    "homepage": "https://github.com/create3000/x3d-tidy#readme",
-   "devDependencies": {
+   "dependencies": {
       "electron": "^22.0.0",
       "x_ite": "^8.3.0",
       "yargs": "^17.6.2"
