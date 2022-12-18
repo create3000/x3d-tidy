@@ -2,8 +2,14 @@
 
 X3D converter, beautifier and minimizer
 
+## Installation
+
+```sh
+$ npm i x3d-tidy
+```
+
 ## Usage
 
 ```sh
-$ npx . -i file.x3d -o file.x3dv
+$ npx x3d-tidy -i file.x3d -o file.x3dv
 ```
