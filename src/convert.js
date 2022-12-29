@@ -77,15 +77,15 @@ function getContents (scene, type)
       case ".x3d":
          return scene .toXMLString ()
       case ".x3dz":
-         return zlib .gzipSync (scene .toXMLString ())
+         return zlib .gzipSync (scene .toXMLString ({ style: "CLEAN" }))
       case ".x3dv":
          return scene .toVRMLString ()
       case ".x3dvz":
-         return zlib .gzipSync (scene .toVRMLString ())
+         return zlib .gzipSync (scene .toVRMLString ({ style: "CLEAN" }))
       case ".x3dj":
          return scene .toJSONString ()
       case ".x3djz":
-         return zlib .gzipSync (scene .toJSONString ())
+         return zlib .gzipSync (scene .toJSONString ({ style: "CLEAN" }))
    }
 }
 
