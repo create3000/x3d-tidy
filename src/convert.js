@@ -24,7 +24,10 @@ async function main (argv)
 
 async function convert (argv)
 {
-   const args = yargs (argv) .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
+   const args = yargs (argv)
+   .scriptName ("x3d-tidy")
+   .usage ("$0 args")
+   .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
    .fail ((msg, error, yargs) =>
    {
       process .stderr .write (msg)
@@ -32,16 +35,23 @@ async function convert (argv)
    })
    .option ("input",
    {
+      type: "string",
       alias: "i",
       description: "Input filename",
-      type: "string",
       demandOption: true,
    })
    .option ("output",
    {
+      type: "string",
       alias: "o",
       description: "Output filename",
+   })
+   .option ("style",
+   {
       type: "string",
+      alias: "s",
+      description: "Output style",
+      choices: ["CLEAN", "SMALL", "TIDY"],
    })
    .help ()
    .alias ("help", "h") .argv;
@@ -59,33 +69,33 @@ async function convert (argv)
       const output = path .resolve (process .cwd (), args .output)
 
       if (path .extname (output))
-         fs .writeFileSync (output, getContents (Browser .currentScene, path .extname (output)))
+         fs .writeFileSync (output, getContents (Browser .currentScene, path .extname (output), args .style))
       else
-         process .stdout .write (getContents (Browser .currentScene, path .basename (output)))
+         process .stdout .write (getContents (Browser .currentScene, path .basename (output), args .style))
    }
    else
    {
-      process .stdout .write (getContents (Browser .currentScene, path .extname (input)))
+      process .stdout .write (getContents (Browser .currentScene, path .extname (input), args .style))
    }
 }
 
-function getContents (scene, type)
+function getContents (scene, type, style)
 {
    switch (type)
    {
       default:
       case ".x3d":
-         return scene .toXMLString ()
+         return scene .toXMLString ({ style: style || "TIDY" })
       case ".x3dz":
-         return zlib .gzipSync (scene .toXMLString ({ style: "CLEAN" }))
+         return zlib .gzipSync (scene .toXMLString ({ style: style || "CLEAN" }))
       case ".x3dv":
-         return scene .toVRMLString ()
+         return scene .toVRMLString ({ style: style || "TIDY" })
       case ".x3dvz":
-         return zlib .gzipSync (scene .toVRMLString ({ style: "CLEAN" }))
+         return zlib .gzipSync (scene .toVRMLString ({ style: style || "CLEAN" }))
       case ".x3dj":
-         return scene .toJSONString ()
+         return scene .toJSONString ({ style: style || "TIDY" })
       case ".x3djz":
-         return zlib .gzipSync (scene .toJSONString ({ style: "CLEAN" }))
+         return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN" }))
    }
 }
 
