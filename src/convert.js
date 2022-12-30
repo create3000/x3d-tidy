@@ -51,7 +51,7 @@ async function convert (argv)
       type: "string",
       alias: "s",
       description: "Output style",
-      choices: ["CLEAN", "SMALL", "TIDY"],
+      choices: ["CLEAN", "SMALL", "COMPACT", "TIDY"],
    })
    .help ()
    .alias ("help", "h") .argv;
