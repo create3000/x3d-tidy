@@ -100,5 +100,9 @@ function getContents (scene, type, style)
 }
 
 process .exit  = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
-console .log   = (s = "") => process .stdout .write (s + "\n")
-console .error = (s = "") => process .stderr .write (s + "\n")
+// console .log   = (s = "") => process .stdout .write (s + "\n")
+// console .warn  = (s = "") => process .stdout .write (s + "\n")
+// console .error = (s = "") => process .stderr .write (s + "\n")
+console .log   = Function .prototype
+console .warn  = Function .prototype
+console .error = Function .prototype
