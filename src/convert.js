@@ -10,6 +10,8 @@ const
    fs       = require ("fs"),
    zlib     = require ("zlib")
 
+process .exit = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
+
 electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
 
 async function main (argv)
@@ -134,5 +136,3 @@ function getContents ({ scene, type, style })
          return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN" }))
    }
 }
-
-process .exit  = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
