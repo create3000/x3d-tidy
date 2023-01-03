@@ -3,6 +3,7 @@
 const
    X3D      = require ("x_ite"),
    infer    = require ("./infer"),
+   metadata = require ("./metadata"),
    electron = require ("electron"),
    yargs    = require ("yargs"),
    path     = require ("path"),
@@ -90,11 +91,13 @@ async function convert (argv)
    if (args .infer)
       infer (Browser .currentScene)
 
+   if (args .metadata)
+      metadata (Browser .currentScene)
+
    const options =
    {
       scene: Browser .currentScene,
       style: args .style,
-      metadata: !args .metadata,
    }
 
    if (args .output)
@@ -112,7 +115,7 @@ async function convert (argv)
    }
 }
 
-function getContents ({ scene, type, style, metadata })
+function getContents ({ scene, type, style })
 {
    switch (type)
    {
