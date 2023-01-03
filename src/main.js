@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+"use strict"
+
 const
    electron = require ("electron"),
    path     = require ("path")
