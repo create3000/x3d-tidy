@@ -61,7 +61,7 @@ module .exports = class Traverse
             return false
       }
 
-      return callback (executionContext) !== false
+      return true
    }
 
    static traverseNodes (nodes, flags, callback, seen)
