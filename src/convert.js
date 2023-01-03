@@ -121,17 +121,17 @@ function getContents ({ scene, type, style })
    {
       default:
       case ".x3d":
-         return scene .toXMLString ({ style: style || "TIDY", metadata: metadata })
+         return scene .toXMLString ({ style: style || "TIDY" })
       case ".x3dz":
-         return zlib .gzipSync (scene .toXMLString ({ style: style || "CLEAN", metadata: metadata }))
+         return zlib .gzipSync (scene .toXMLString ({ style: style || "CLEAN" }))
       case ".x3dv":
-         return scene .toVRMLString ({ style: style || "TIDY", metadata: metadata })
+         return scene .toVRMLString ({ style: style || "TIDY" })
       case ".x3dvz":
-         return zlib .gzipSync (scene .toVRMLString ({ style: style || "CLEAN", metadata: metadata }))
+         return zlib .gzipSync (scene .toVRMLString ({ style: style || "CLEAN" }))
       case ".x3dj":
-         return scene .toJSONString ({ style: style || "TIDY", metadata: metadata })
+         return scene .toJSONString ({ style: style || "TIDY" })
       case ".x3djz":
-         return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN", metadata: metadata }))
+         return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN" }))
    }
 }
 
