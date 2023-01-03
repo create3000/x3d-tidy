@@ -47,14 +47,14 @@ async function convert (argv)
    {
       type: "string",
       alias: "i",
-      description: "Set input filename.",
+      description: "Set input file.",
       demandOption: true,
    })
    .option ("output",
    {
       type: "string",
       alias: "o",
-      description: "Set output filename.",
+      description: "Set output filen.",
    })
    .option ("style",
    {
