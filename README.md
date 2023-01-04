@@ -28,7 +28,7 @@ Set output file.
 
 Set output style, default is "TIDY".
 
-### -d
+### -d *integer*
 
 Set double precision, default is 15.
 
@@ -36,7 +36,7 @@ Set double precision, default is 15.
 
 Set float precision, default is 7.
 
-### -r *integer*
+### -r
 
 If set, infer profile and components from used nodes.
 
