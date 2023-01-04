@@ -28,7 +28,15 @@ Set output file.
 
 Set output style.
 
+### -d
+
+Set double precision, default 15.
+
 ### -f
+
+Set float precision, default 7.
+
+### -r
 
 Infer profile and components from used nodes.
 

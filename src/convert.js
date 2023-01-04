@@ -63,10 +63,22 @@ async function convert (argv)
       description: "Set output style.",
       choices: ["CLEAN", "SMALL", "COMPACT", "TIDY"],
    })
+   .option ("double",
+   {
+      type: "number",
+      alias: "d",
+      description: "Set double precision, default 15.",
+   })
+   .option ("float",
+   {
+      type: "number",
+      alias: "f",
+      description: "Set float precision, default 7.",
+   })
    .option ("infer",
    {
       type: "boolean",
-      alias: "f",
+      alias: "r",
       description: "Infer profile and components from used nodes.",
    })
    .option ("metadata",
@@ -100,6 +112,8 @@ async function convert (argv)
    {
       scene: Browser .currentScene,
       style: args .style,
+      precision: args .float,
+      doublePrecision: args .double,
    }
 
    if (args .output)
@@ -117,22 +131,22 @@ async function convert (argv)
    }
 }
 
-function getContents ({ scene, type, style })
+function getContents ({ scene, type, style, precision, doublePrecision })
 {
    switch (type)
    {
       default:
       case ".x3d":
-         return scene .toXMLString ({ style: style || "TIDY" })
+         return scene .toXMLString ({ style: style || "TIDY", precision: precision, doublePrecision: doublePrecision })
       case ".x3dz":
-         return zlib .gzipSync (scene .toXMLString ({ style: style || "CLEAN" }))
+         return zlib .gzipSync (scene .toXMLString ({ style: style || "CLEAN", precision: precision, doublePrecision: doublePrecision }))
       case ".x3dv":
-         return scene .toVRMLString ({ style: style || "TIDY" })
+         return scene .toVRMLString ({ style: style || "TIDY", precision: precision, doublePrecision: doublePrecision })
       case ".x3dvz":
-         return zlib .gzipSync (scene .toVRMLString ({ style: style || "CLEAN" }))
+         return zlib .gzipSync (scene .toVRMLString ({ style: style || "CLEAN", precision: precision, doublePrecision: doublePrecision }))
       case ".x3dj":
-         return scene .toJSONString ({ style: style || "TIDY" })
+         return scene .toJSONString ({ style: style || "TIDY", precision: precision, doublePrecision: doublePrecision })
       case ".x3djz":
-         return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN" }))
+         return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN", precision: precision, doublePrecision: doublePrecision }))
    }
 }
