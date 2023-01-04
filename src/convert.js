@@ -3,6 +3,7 @@
 const
    X3D      = require ("x_ite"),
    infer    = require ("./infer"),
+   pkg      = require ("../package.json"),
    metadata = require ("./metadata"),
    electron = require ("electron"),
    yargs    = require ("yargs"),
@@ -101,6 +102,8 @@ async function convert (argv)
    Browser .endUpdate ()
 
    await Browser .loadURL (new X3D .MFString (input))
+
+   Browser .currentScene .setMetaData ("generator", `${pkg .name} V${pkg .version}, ${pkg .homepage}`)
 
    if (args .infer)
       infer (Browser .currentScene)
