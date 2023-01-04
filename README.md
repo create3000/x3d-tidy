@@ -24,21 +24,21 @@ Set input file.
 
 Set output file.
 
-### -s [TIDY, COMPACT, SMALL, CLEAN]
+### -s [**TIDY**, COMPACT, SMALL, CLEAN]
 
-Set output style.
+Set output style, default is "TIDY".
 
 ### -d
 
-Set double precision, default 15.
+Set double precision, default is 15.
 
 ### -f
 
-Set float precision, default 7.
+Set float precision, default is 7.
 
 ### -r
 
-Infer profile and components from used nodes.
+If set, infer profile and components from used nodes.
 
 ### -m
 

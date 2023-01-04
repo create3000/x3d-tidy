@@ -79,7 +79,7 @@ async function convert (argv)
    {
       type: "boolean",
       alias: "r",
-      description: "Infer profile and components from used nodes.",
+      description: "If set, infer profile and components from used nodes.",
    })
    .option ("metadata",
    {
