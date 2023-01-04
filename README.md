@@ -44,7 +44,7 @@ If set, infer profile and components from used nodes.
 
 If set, remove metadata.
 
-### Supported Input File Types
+## Supported Input File Types
 
 | X3D Encoding | File Extension | MIME Type      |
 |--------------|----------------|----------------|
@@ -53,7 +53,7 @@ If set, remove metadata.
 | Classic VRML | .x3dv, .x3dvz  | model/x3d+vrml |
 | VRML         | .wrl, .wrz     | model/vrml     |
 
-### Supported Output File Types
+## Supported Output File Types
 
 | X3D Encoding | File Extension | MIME Type      |
 |--------------|----------------|----------------|
