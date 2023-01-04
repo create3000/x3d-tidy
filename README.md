@@ -16,15 +16,15 @@ $ npm i x3d-tidy
 
 **x3d-tidy** interprets the following options when it is invoked:
 
-### -i file
+### -i *file*
 
 Set input file.
 
-### -o file
+### -o *file*
 
 Set output file.
 
-### -s [**TIDY**, COMPACT, SMALL, CLEAN]
+### -s *[**TIDY**, COMPACT, SMALL, CLEAN]*
 
 Set output style, default is "TIDY".
 
@@ -32,11 +32,11 @@ Set output style, default is "TIDY".
 
 Set double precision, default is 15.
 
-### -f
+### -f *integer*
 
 Set float precision, default is 7.
 
-### -r
+### -r *integer*
 
 If set, infer profile and components from used nodes.
 
