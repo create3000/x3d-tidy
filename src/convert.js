@@ -60,20 +60,20 @@ async function convert (argv)
    {
       type: "string",
       alias: "s",
-      description: "Set output style.",
+      description: "Set output style, default is \"TIDY\".",
       choices: ["CLEAN", "SMALL", "COMPACT", "TIDY"],
    })
    .option ("double",
    {
       type: "number",
       alias: "d",
-      description: "Set double precision, default 15.",
+      description: "Set double precision, default is 15.",
    })
    .option ("float",
    {
       type: "number",
       alias: "f",
-      description: "Set float precision, default 7.",
+      description: "Set float precision, default is 7.",
    })
    .option ("infer",
    {
