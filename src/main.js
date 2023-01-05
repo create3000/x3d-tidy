@@ -7,10 +7,17 @@ const
 
 process .env .ELECTRON_DISABLE_SECURITY_WARNINGS = "true"
 
+if (process .platform === "darwin")
+{
+   electron .app .setActivationPolicy ("accessory")
+   electron .app .dock .hide ()
+}
+
 electron .app .whenReady () .then (async () =>
 {
    const window = new electron .BrowserWindow ({
       show: false,
+      skipTaskbar: true,
       webPreferences: {
          offscreen: true,
          preload: path .join (__dirname, "window.js"),

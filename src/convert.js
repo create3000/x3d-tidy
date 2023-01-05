@@ -103,7 +103,8 @@ async function convert (argv)
 
    await Browser .loadURL (new X3D .MFString (input))
 
-   Browser .currentScene .setMetaData ("generator", `${pkg .name} V${pkg .version}, ${pkg .homepage}`)
+   Browser .currentScene .setMetaData ("converter", `${pkg .name} V${pkg .version}, ${pkg .homepage}`)
+   Browser .currentScene .setMetaData ("converted", new Date () .toUTCString ())
 
    if (args .infer)
       infer (Browser .currentScene)
