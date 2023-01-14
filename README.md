@@ -46,12 +46,13 @@ If set, remove metadata.
 
 ## Supported Input File Types
 
-| X3D Encoding | File Extension | MIME Type      |
-|--------------|----------------|----------------|
-| XML          | .x3d, .x3dz    | model/x3d+xml  |
-| JSON         | .x3dj, .x3djz  | model/x3d+json |
-| Classic VRML | .x3dv, .x3dvz  | model/x3d+vrml |
-| VRML         | .wrl, .wrz     | model/vrml     |
+| X3D Encoding | File Extension | MIME Type       |
+|--------------|----------------|-----------------|
+| XML          | .x3d, .x3dz    | model/x3d+xml   |
+| JSON         | .x3dj, .x3djz  | model/x3d+json  |
+| Classic VRML | .x3dv, .x3dvz  | model/x3d+vrml  |
+| VRML         | .wrl, .wrz     | model/vrml      |
+| glTF         | .gltf          | model/gltf+json |
 
 ## Supported Output File Types
 
