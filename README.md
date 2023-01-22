@@ -53,6 +53,7 @@ If set, remove metadata.
 | Classic VRML | .x3dv, .x3dvz  | model/x3d+vrml  |
 | VRML         | .wrl, .wrz     | model/vrml      |
 | glTF         | .gltf          | model/gltf+json |
+| OBJ          | .obj           | model/obj       |
 
 ## Supported Output File Types
 
