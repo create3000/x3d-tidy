@@ -19,7 +19,14 @@
       "converter",
       "minimizer",
       "beautifier",
-      "tidy"
+      "tidy",
+      "X3D",
+		"VRML",
+		"wrl",
+		"XML",
+		"JSON",
+		"glTF2",
+		"wavefront-obj"
    ],
    "author": "Holger Seelig",
    "license": "GPL-3.0",
