@@ -54,6 +54,7 @@ If set, remove metadata.
 | VRML          | .wrl, .wrz     | model/vrml      |
 | glTF          | .gltf          | model/gltf+json |
 | Wavefront OBJ | .obj           | model/obj       |
+| SVG           | .svg, .svgz    | image/svg+xml   |
 
 ## Supported Output File Types
 
