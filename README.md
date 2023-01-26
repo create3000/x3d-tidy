@@ -46,15 +46,15 @@ If set, remove metadata.
 
 ## Supported Input File Types
 
-| Encoding      | File Extension | MIME Type       |
-|---------------|----------------|-----------------|
-| XML           | .x3d, .x3dz    | model/x3d+xml   |
-| JSON          | .x3dj, .x3djz  | model/x3d+json  |
-| Classic VRML  | .x3dv, .x3dvz  | model/x3d+vrml  |
-| VRML          | .wrl, .wrz     | model/vrml      |
-| glTF          | .gltf          | model/gltf+json |
-| Wavefront OBJ | .obj           | model/obj       |
-| SVG Document  | .svg, .svgz    | image/svg+xml   |
+| Encoding         | File Extension | MIME Type       |
+|------------------|----------------|-----------------|
+| X3D XML          | .x3d, .x3dz    | model/x3d+xml   |
+| X3D JSON         | .x3dj, .x3djz  | model/x3d+json  |
+| X3D Classic VRML | .x3dv, .x3dvz  | model/x3d+vrml  |
+| VRML             | .wrl, .wrz     | model/vrml      |
+| glTF             | .gltf          | model/gltf+json |
+| Wavefront OBJ    | .obj           | model/obj       |
+| SVG Document     | .svg, .svgz    | image/svg+xml   |
 
 ## Supported Output File Types
 
