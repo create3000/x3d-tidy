@@ -46,7 +46,7 @@ If set, remove metadata.
 
 ## Supported Input File Types
 
-| X3D Encoding  | File Extension | MIME Type       |
+| Encoding      | File Extension | MIME Type       |
 |---------------|----------------|-----------------|
 | XML           | .x3d, .x3dz    | model/x3d+xml   |
 | JSON          | .x3dj, .x3djz  | model/x3d+json  |
