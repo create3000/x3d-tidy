@@ -26,7 +26,8 @@
 		"XML",
 		"JSON",
 		"glTF2",
-		"wavefront-obj"
+		"wavefront-obj",
+      "SVG"
    ],
    "author": "Holger Seelig",
    "license": "GPL-3.0",
