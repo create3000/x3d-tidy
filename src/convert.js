@@ -9,7 +9,10 @@ const
    yargs    = require ("yargs"),
    path     = require ("path"),
    fs       = require ("fs"),
-   zlib     = require ("zlib")
+   zlib     = require ("zlib"),
+   DEBUG    = false
+
+// DEBUG: run `npx x3d-tidy --version` to reset cache.
 
 process .exit = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
 
@@ -91,9 +94,12 @@ async function convert (argv)
    .help ()
    .alias ("help", "h") .argv;
 
-   console .log   = Function .prototype
-   console .warn  = Function .prototype
-   console .error = Function .prototype
+   if (!DEBUG)
+   {
+      console .log   = Function .prototype
+      console .warn  = Function .prototype
+      console .error = Function .prototype
+   }
 
    const
       Browser = X3D .createBrowser () .browser,
