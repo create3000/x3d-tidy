@@ -12,7 +12,7 @@ const
    zlib     = require ("zlib"),
    DEBUG    = false
 
-// DEBUG: run `npx x3d-tidy --version` to reset cache.
+// DEBUG: npm start -- --version` to reset cache.
 
 process .exit = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
 
@@ -34,9 +34,9 @@ async function main (argv)
 
 async function convert (argv)
 {
-   console .log   = (s = "") => process .stdout .write (s + "\n")
-   console .warn  = (s = "") => process .stdout .write (s + "\n")
-   console .error = (s = "") => process .stderr .write (s + "\n")
+   console .log   = output .bind (null, process .stdout)
+   console .warn  = output .bind (null, process .stdout)
+   console .error = output .bind (null, process .stderr)
 
    const args = yargs (argv)
    .scriptName ("x3d-tidy")
@@ -159,4 +159,9 @@ function getContents ({ scene, type, style, precision, doublePrecision })
       case ".x3djz":
          return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN", precision: precision, doublePrecision: doublePrecision }))
    }
+}
+
+function output (stdout, ... args)
+{
+   stdout .write (args .join (" ") + "\n")
 }
