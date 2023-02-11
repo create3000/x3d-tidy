@@ -1,6 +1,6 @@
 {
    "name": "x3d-tidy",
-   "version": "1.0.9",
+   "version": "1.0.10",
    "description": "X3D Converter, Beautifier and Minimizer",
    "bin": {
       "x3d-tidy": "bin/x3d-tidy.js"
@@ -15,21 +15,21 @@
       "url": "git+https://github.com/create3000/x3d-tidy.git"
    },
    "keywords": [
-      "X3D",
-      "converter",
-      "minimizer",
-      "beautifier",
-      "tidy",
-      "X3D",
+      "Compressor",
+		"glTF2",
+		"JSON",
+		"STL",
 		"VRML",
+		"Wavefront-OBJ",
 		"wrl",
 		"XML",
-		"JSON",
-		"glTF2",
+      "beautifier",
+      "converter",
       "GLB",
-		"Wavefront-OBJ",
-		"STL",
-      "SVG"
+      "Minimizer",
+      "SVG",
+      "tidy",
+      "X3D"
    ],
    "author": "Holger Seelig",
    "license": "GPL-3.0",
