@@ -106,6 +106,8 @@ async function convert (argv)
       input   = path .resolve (process .cwd (), args .input)
 
    Browser .endUpdate ()
+   Browser .setBrowserOption ("PrimitiveQuality", "HIGH");
+   Browser .setBrowserOption ("TextureQuality",   "HIGH");
 
    await Browser .loadURL (new X3D .MFString (input))
 
