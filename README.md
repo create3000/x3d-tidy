@@ -72,3 +72,7 @@ Convert an XML encoded file into a VRML encoded file.
 ```sh
 $ npx x3d-tidy -i file.x3d -o file.x3dv
 ```
+
+## Online Converter
+
+[Online X3D File Format Converter](https://create3000.github.io/x_ite/laboratory/x3d-file-converter) powered by X_ITE.
