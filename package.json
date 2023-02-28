@@ -38,8 +38,8 @@
    },
    "homepage": "https://github.com/create3000/x3d-tidy#readme",
    "dependencies": {
-      "electron": "^23.0.0",
+      "electron": "^23.1.1",
       "x_ite": "latest",
-      "yargs": "^17.6.2"
+      "yargs": "^17.7.1"
    }
 }
