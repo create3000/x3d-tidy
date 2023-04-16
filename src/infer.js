@@ -23,6 +23,16 @@ function getUsedComponents (scene)
    {
       if (node .getType () .includes (X3D .X3DConstants .X3DNode))
          components .add (node .getComponentName ())
+
+      if (node .getType () .includes (X3D .X3DConstants .Script))
+      {
+         const
+            source = node ._url .join ("\n"),
+            types  = source .match (/(?<=createNode\s*\(\s*)(".*?"|'.*?'|`.*?`)(?=\s*\))/g) .map (m => m .replace (/^.|.$/g, "")) .map (m => scene .getBrowser () .getSupportedNode (m)) .filter (m => m)
+
+         for (const type of types)
+            components .add (type .prototype .getComponentName ())
+      }
    })
 
    return components
