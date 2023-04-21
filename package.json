@@ -15,7 +15,6 @@
       "url": "git+https://github.com/create3000/x3d-tidy.git"
    },
    "keywords": [
-      "Compressor",
 		"glTF2",
 		"JSON",
 		"STL",
@@ -24,9 +23,11 @@
 		"wrl",
 		"XML",
       "beautifier",
+      "Compressor",
       "converter",
       "GLB",
       "Minimizer",
+      "npx",
       "SVG",
       "tidy",
       "X3D"
