@@ -106,7 +106,7 @@ module .exports = class Traverse
          }
       }
 
-      for (const type of node .getType () .reverse ())
+      for (const type of node .getType () .slice () .reverse ())
       {
          switch (type)
          {
