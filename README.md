@@ -58,6 +58,7 @@ If set, remove metadata.
 | XML          | .x3d, .x3dz    | model/x3d+xml  |
 | JSON         | .x3dj, .x3djz  | model/x3d+json |
 | Classic VRML | .x3dv, .x3dvz  | model/x3d+vrml |
+| HTML         | .html          | text/html      |
 
 ## Examples
 

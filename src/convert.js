@@ -160,8 +160,32 @@ function getContents ({ scene, type, style, precision, doublePrecision })
          return scene .toJSONString ({ style: style || "TIDY", precision: precision, doublePrecision: doublePrecision })
       case ".x3djz":
          return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN", precision: precision, doublePrecision: doublePrecision }))
+      case ".html":
+         return getHTML (scene);
    }
 }
+
+function getHTML (scene)
+{
+   return `<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://create3000.github.io/code/x_ite/latest/x_ite.min.js"></script>
+    <style>
+x3d-canvas {
+  width: 768px;
+  height: 432px;
+}
+    </style>
+  </head>
+  <body>
+    <x3d-canvas>
+${scene .toXMLString ({ html: true, indent: " " .repeat (6) })}
+    </x3d-canvas>
+  </body>
+</html>`
+   }
 
 function output (stdout, ... args)
 {
