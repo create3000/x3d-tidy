@@ -7,6 +7,7 @@ const
    metadata = require ("./metadata"),
    electron = require ("electron"),
    yargs    = require ("yargs"),
+   url      = require ("url"),
    path     = require ("path"),
    fs       = require ("fs"),
    zlib     = require ("zlib"),
@@ -175,6 +176,11 @@ function getHTML (scene)
     <style>
 body {
   background-color: rgb(21, 22, 24);
+  color: rgb(108, 110, 113);
+}
+
+a {
+  color: rgb(106, 140, 191);
 }
 
 x3d-canvas {
@@ -184,9 +190,11 @@ x3d-canvas {
     </style>
   </head>
   <body>
+    <h1>${path .basename (url .fileURLToPath (scene .worldURL))}</h1>
     <x3d-canvas>
 ${scene .toXMLString ({ html: true, indent: " " .repeat (6) })}
     </x3d-canvas>
+    <p>Made with <a href="https://www.npmjs.com/package/x3d-tidy" target="_blank">x3d-tidy.</a></p>
   </body>
 </html>`
    }
