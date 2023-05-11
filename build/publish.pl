@@ -14,7 +14,7 @@ chomp $online;
 #say "NPM version $online";
 
 system "npm version patch --no-git-tag-version --force" if $version eq $online;
-system "npm i x_ite@latest"
+system "npm i x_ite\@latest"
 
 system "git", "add", "-A";
 system "git", "commit", "-am", "Published version $version";
