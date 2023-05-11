@@ -7,11 +7,11 @@ use open qw/:std :utf8/;
 
 my $version = `npm pkg get version | sed 's/"//g'`;
 chomp $version;
-#say "package.json version $version";
+say "package.json version $version";
 
-my $online = `npm view x_ite version`;
+my $online = `npm view x3d-tidy version`;
 chomp $online;
-#say "NPM version $online";
+say "NPM version $online";
 
 system "npm version patch --no-git-tag-version --force" if $version eq $online;
 system "npm i x_ite\@latest";
