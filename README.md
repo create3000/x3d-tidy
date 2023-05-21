@@ -4,6 +4,8 @@ X3D converter, beautifier and minimizer
 
 ## Synopsis
 
+You can run *x3d-tidy* without installing it using **npx**:
+
 **npx x3d-tidy** \[options\]
 
 ## Options
