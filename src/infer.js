@@ -38,7 +38,7 @@ function getProfileAndComponentsFromUsedComponents (browser, usedComponents)
    const profiles = ["Interactive", "Interchange", "Immersive"] .map (name =>
    {
       return { profile: browser .getProfile (name), components: new Set (usedComponents) }
-   });
+   })
 
    profiles .forEach (object =>
    {
@@ -58,7 +58,7 @@ function getProfileAndComponentsFromUsedComponents (browser, usedComponents)
    { count: Number .POSITIVE_INFINITY })
 
    return {
-      profile:  min .object .profile,
+      profile: min .object .profile,
       components: Array .from (min .object .components) .sort () .map (name => browser .getSupportedComponents () .get (name)),
    }
 }
