@@ -85,7 +85,7 @@ module .exports = class Traverse
 
       seen .add (node)
 
-      for (const field of node .getFields ())
+      for (const field of [... node .getUserDefinedFields (), ... node .getPredefinedFields ()])
       {
          switch (field .getType ())
          {
@@ -106,9 +106,11 @@ module .exports = class Traverse
          }
       }
 
-      for (const type of node .getType () .slice () .reverse ())
+      const type = node .getType ()
+
+      for (let t = type .length - 1; t >= 0; -- t)
       {
-         switch (type)
+         switch (type [t])
          {
             case X3D .X3DConstants .X3DProtoDeclaration:
             {
