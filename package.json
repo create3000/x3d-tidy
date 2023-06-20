@@ -1,6 +1,6 @@
 {
    "name": "x3d-tidy",
-   "version": "1.0.41",
+   "version": "1.0.42",
    "description": "X3D Converter, Beautifier and Minimizer",
    "bin": {
       "x3d-tidy": "bin/x3d-tidy.js"
@@ -41,7 +41,7 @@
    "homepage": "https://www.npmjs.com/package/x3d-tidy",
    "dependencies": {
       "electron": "^25.1.1",
-      "x_ite": "^8.8.3",
+      "x_ite": "^8.8.4",
       "yargs": "^17.7.2"
    }
 }
