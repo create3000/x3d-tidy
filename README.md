@@ -51,6 +51,7 @@ If set, remove metadata.
 | glTF             | .gltf, .glb    | model/gltf+json |
 | Wavefront OBJ    | .obj           | model/obj       |
 | STL              | .stl           | model/stl       |
+| PLY              | .ply           | model/ply       |
 | SVG Document     | .svg, .svgz    | image/svg+xml   |
 
 ## Supported Output File Types
