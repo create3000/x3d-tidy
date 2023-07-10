@@ -7,8 +7,6 @@ const { spawn } = require ("child_process")
 
 process .chdir (path .resolve (__dirname, ".."))
 
-console .log (process .cwd ())
-
 const p = spawn (os .platform () === "win32" ? "npm.cmd" : "npm", ["start", "--silent", "--", ... process .argv .slice (2)])
 
 p .stdout .pipe (process .stdout)
