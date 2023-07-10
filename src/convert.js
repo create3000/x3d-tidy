@@ -46,7 +46,7 @@ async function convert (argv)
    .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
    .fail ((msg, error, yargs) =>
    {
-      process .stderr .write (msg)
+      console .log (msg)
       process .exit (1)
    })
    .option ("input",
@@ -96,13 +96,6 @@ async function convert (argv)
    .help ()
    .alias ("help", "h") .argv;
 
-   if (!DEBUG)
-   {
-      console .log   = Function .prototype
-      console .warn  = Function .prototype
-      console .error = Function .prototype
-   }
-
    const
       Browser = X3D .createBrowser () .browser,
       input   = path .resolve (process .cwd (), args .input)
@@ -137,11 +130,11 @@ async function convert (argv)
       if (path .extname (output))
          fs .writeFileSync (output, getContents ({ ...options, type: path .extname (output) }))
       else
-         process .stdout .write (getContents ({ ...options, type: path .basename (output) }))
+         console .log (getContents ({ ...options, type: path .basename (output) }))
    }
    else
    {
-      process .stdout .write (getContents ({ ...options, type: path .extname (input) }))
+      console .log (getContents ({ ...options, type: path .extname (input) }))
    }
 }
 
