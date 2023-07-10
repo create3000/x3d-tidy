@@ -15,6 +15,9 @@ const
 
 // DEBUG: npm start -- --version` to reset cache.
 
+process .stdout .write ("convert\n")
+console .log ("window")
+
 process .exit = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
 
 electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
