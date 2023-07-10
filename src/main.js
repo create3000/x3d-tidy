@@ -28,11 +28,16 @@ electron .app .whenReady () .then (async () =>
 
    electron .ipcMain .on ("ready", () => electron .app .quit ())
 
+   electron .ipcMain .on ("output", (event, message) =>
+   {
+      process .stderr .write (message)
+      process .stderr .write ("\n")
+   })
+
    electron .ipcMain .on ("error", (event, message) =>
    {
       process .stderr .write (message)
       process .stderr .write ("\n")
-      process .exit (1)
    })
 
    await window .loadFile (path .join (__dirname, "window.html"))

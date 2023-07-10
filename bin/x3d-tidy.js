@@ -4,7 +4,7 @@
 const os = require ("os")
 const { spawn } = require ("child_process")
 
-const p = spawn (os .platform () === "win32" ? "npm.cmd" : "npm", ["start", "--", ... process .argv .slice (2)])
+const p = spawn (os .platform () === "win32" ? "npm.cmd" : "npm", ["start", "--silent", "--", ... process .argv .slice (2)])
 
 p .stdout .pipe (process .stdout)
 p .stderr .pipe (process .stderr)

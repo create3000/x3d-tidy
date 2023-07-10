@@ -1,24 +1,26 @@
 "use strict"
 
 const
-   X3D      = require ("x_ite"),
-   infer    = require ("./infer"),
-   pkg      = require ("../package.json"),
-   metadata = require ("./metadata"),
-   electron = require ("electron"),
-   yargs    = require ("yargs"),
-   url      = require ("url"),
-   path     = require ("path"),
-   fs       = require ("fs"),
-   zlib     = require ("zlib"),
-   DEBUG    = false
+   X3D         = require ("x_ite"),
+   infer       = require ("./infer"),
+   pkg         = require ("../package.json"),
+   metadata    = require ("./metadata"),
+   electron    = require ("electron"),
+   yargs       = require ("yargs"),
+   url         = require ("url"),
+   path        = require ("path"),
+   fs          = require ("fs"),
+   zlib        = require ("zlib"),
+   nodeConsole = require ("console"),
+   DEBUG       = false
 
 // DEBUG: npm start -- --version` to reset cache.
 
-process .stdout .write ("convert\n")
-console .log ("window")
+console = nodeConsole .Console (process .stdout, process .stderr)
 
-process .exit = (status) => electron .ipcRenderer .send (status ? "error" : "ready", "")
+process .exit          = (status)  => electron .ipcRenderer .send (status ? "error" : "ready", "")
+process .stdout .write = (message) => electron .ipcRenderer .send ("output", message)
+process .stderr .write = (message) => electron .ipcRenderer .send ("error", message)
 
 electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
 
@@ -38,10 +40,6 @@ async function main (argv)
 
 async function convert (argv)
 {
-   console .log   = output .bind (null, process .stdout)
-   console .warn  = output .bind (null, process .stdout)
-   console .error = output .bind (null, process .stderr)
-
    const args = yargs (argv)
    .scriptName ("x3d-tidy")
    .usage ("$0 args")
@@ -200,9 +198,4 @@ ${scene .toXMLString ({ html: true, indent: " " .repeat (6) })}
     <p>Made with <a href="https://www.npmjs.com/package/x3d-tidy" target="_blank">x3d-tidy.</a></p>
   </body>
 </html>`
-   }
-
-function output (stdout, ... args)
-{
-   stdout .write (args .join (" ") + "\n")
 }
