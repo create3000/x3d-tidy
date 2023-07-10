@@ -2,7 +2,10 @@
 "use strict"
 
 const os = require ("os")
+const path = require ("path")
 const { spawn } = require ("child_process")
+
+process .chdir (path .resolve (__dirname, ".."))
 
 console .log (process .cwd ())
 
