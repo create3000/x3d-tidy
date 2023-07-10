@@ -4,7 +4,7 @@
 const os = require ("os")
 const { spawn } = require ("child_process")
 
-console .log (process .pwd ())
+console .log (process .cwd ())
 
 const p = spawn (os .platform () === "win32" ? "npm.cmd" : "npm", ["start", "--silent", "--", ... process .argv .slice (2)])
 
