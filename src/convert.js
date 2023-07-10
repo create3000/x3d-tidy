@@ -71,7 +71,7 @@ async function convert (argv)
    {
       type: "string",
       alias: "s",
-      description: "Set output style, default is \"TIDY\".",
+      description: "Set output style, default is 'TIDY'.",
       choices: ["CLEAN", "SMALL", "COMPACT", "TIDY"],
    })
    .option ("double",
