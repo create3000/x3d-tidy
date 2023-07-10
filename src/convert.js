@@ -49,6 +49,11 @@ async function convert (argv)
       console .log (msg)
       process .exit (1)
    })
+   .option ("cwd",
+   {
+      type: "string",
+   })
+   .hide ("cwd")
    .option ("input",
    {
       type: "string",
@@ -98,7 +103,7 @@ async function convert (argv)
 
    const
       Browser = X3D .createBrowser () .browser,
-      input   = path .resolve (process .cwd (), args .input)
+      input   = path .resolve (args .cwd || process .cwd (), args .input)
 
    Browser .endUpdate ()
    Browser .setBrowserOption ("PrimitiveQuality", "HIGH");
