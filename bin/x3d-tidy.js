@@ -4,7 +4,7 @@
 const path = require ("path")
 const { execFile } = require ("child_process")
 
-execFile ("electron", [path .resolve (__dirname, ".."), ... process .argv], (error, stdout, stderr) =>
+execFile ("npm", ["start", "--", ... process .argv .slice (2)], (error, stdout, stderr) =>
 {
    if (error)
       return process .stderr .write (error .message)
