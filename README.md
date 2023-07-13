@@ -38,7 +38,7 @@ If set, infer profile and components from used nodes.
 
 ### -m
 
-If set, remove metadata.
+If set, remove metadata nodes.
 
 ## Supported Input File Types
 
