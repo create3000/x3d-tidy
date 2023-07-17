@@ -130,7 +130,7 @@ async function convert (argv)
 
    if (args .output)
    {
-      const output = path .resolve (process .cwd (), args .output)
+      const output = path .resolve (args .cwd || process .cwd (), args .output)
 
       if (path .extname (output))
          fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }))
