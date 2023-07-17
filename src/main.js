@@ -36,12 +36,12 @@ electron .app .whenReady () .then (async () =>
 
    electron .ipcMain .on ("warn", (event, format, ... messages) =>
    {
-      console .log (colors .yellow (format), ... messages)
+      console .warn (colors .yellow (format), ... messages)
    })
 
    electron .ipcMain .on ("error", (event, format, ... messages) =>
    {
-      console .log (colors .red (format), ... messages)
+      console .error (colors .red (format), ... messages)
    })
 
    electron .ipcMain .on ("exit", (event, code = 0) =>
