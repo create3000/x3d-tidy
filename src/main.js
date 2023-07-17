@@ -5,6 +5,8 @@ const
    path     = require ("path"),
    colors   = require ("colors")
 
+colors .enable ()
+
 process .env .ELECTRON_DISABLE_SECURITY_WARNINGS = "true"
 // process .env .ELECTRON_ENABLE_LOGGING            = 1
 
