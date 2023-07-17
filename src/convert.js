@@ -14,12 +14,12 @@ const
    nodeConsole = require ("console"),
    DEBUG       = false
 
-// DEBUG: npm start -- --version` to reset cache.
+// Redirect console messages.
 
 console = nodeConsole .Console (process .stdout, process .stderr)
 
 process .exit          = (status)  => electron .ipcRenderer .send (status ? "error" : "ready", "")
-process .stdout .write = (message) => electron .ipcRenderer .send ("output", message)
+process .stdout .write = (message) => electron .ipcRenderer .send ("log", message)
 process .stderr .write = (message) => electron .ipcRenderer .send ("error", message)
 
 electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
@@ -132,7 +132,7 @@ async function convert (argv)
 
    if (args .output)
    {
-      const output = path .resolve (args .cwd || process .cwd (), args .output)
+      const output = path .resolve (process .cwd (), args .output)
 
       if (path .extname (output))
          fs .writeFileSync (output, getContents ({ ...options, type: path .extname (output) }))

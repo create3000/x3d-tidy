@@ -28,14 +28,20 @@ electron .app .whenReady () .then (async () =>
 
    electron .ipcMain .on ("ready", () => electron .app .quit ())
 
-   electron .ipcMain .on ("output", (event, message) =>
+   electron .ipcMain .on ("log", (event, message = "") =>
    {
+      if (filter (message))
+         return;
+
       process .stderr .write (message)
       process .stderr .write ("\n")
    })
 
-   electron .ipcMain .on ("error", (event, message) =>
+   electron .ipcMain .on ("error", (event, message = "") =>
    {
+      if (filter (message))
+         return;
+
       process .stderr .write (message)
       process .stderr .write ("\n")
    })
@@ -49,3 +55,12 @@ electron .app .whenReady () .then (async () =>
 
    window .webContents .send ("convert", process .argv)
 })
+
+function filter (message)
+{
+   if (typeof message !== "string")
+      return
+
+   if (message .includes ("Invalid asm.js"))
+      return true
+}
