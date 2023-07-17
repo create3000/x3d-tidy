@@ -35,6 +35,7 @@ async function main (argv)
    catch (error)
    {
       electron .ipcRenderer .send ("error", error .message || error)
+      electron .ipcRenderer .send ("exit", 1)
    }
 }
 
@@ -109,6 +110,7 @@ async function convert (argv)
    Browser .setBrowserOption ("PrimitiveQuality", "HIGH");
    Browser .setBrowserOption ("TextureQuality",   "HIGH");
 
+   await Browser .loadComponents (Browser .getProfile ("Full"))
    await Browser .loadURL (new X3D .MFString (input))
 
    Browser .currentScene .setMetaData ("converter", `${pkg .name} V${pkg .version}, ${pkg .homepage}`)

@@ -40,6 +40,11 @@ electron .app .whenReady () .then (async () =>
       process .stderr .write ("\n")
    })
 
+   electron .ipcMain .on ("exit", (event, code = 0) =>
+   {
+      process .exit (code)
+   })
+
    await window .loadFile (path .join (__dirname, "window.html"))
 
    window .webContents .send ("convert", process .argv)
