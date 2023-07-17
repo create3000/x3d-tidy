@@ -11,16 +11,14 @@ const
    path        = require ("path"),
    fs          = require ("fs"),
    zlib        = require ("zlib"),
-   nodeConsole = require ("console"),
    DEBUG       = false
 
 // Redirect console messages.
 
-console = nodeConsole .Console (process .stdout, process .stderr)
-
-process .exit          = (status)  => electron .ipcRenderer .send (status ? "error" : "ready", "")
-process .stdout .write = (message) => electron .ipcRenderer .send ("log", message)
-process .stderr .write = (message) => electron .ipcRenderer .send ("error", message)
+process .exit  = (status)  => electron .ipcRenderer .send ("exit", status)
+console .log   = (... messages) => electron .ipcRenderer .send ("log",   ... messages)
+console .warn  = (... messages) => electron .ipcRenderer .send ("warn",  ... messages)
+console .error = (... messages) => electron .ipcRenderer .send ("error", ... messages)
 
 electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
 

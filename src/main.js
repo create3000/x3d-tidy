@@ -2,7 +2,8 @@
 
 const
    electron = require ("electron"),
-   path     = require ("path")
+   path     = require ("path"),
+   chalk    = require ("chalk")
 
 process .env .ELECTRON_DISABLE_SECURITY_WARNINGS = "true"
 // process .env .ELECTRON_ENABLE_LOGGING            = 1
@@ -28,16 +29,19 @@ electron .app .whenReady () .then (async () =>
 
    electron .ipcMain .on ("ready", () => electron .app .quit ())
 
-   electron .ipcMain .on ("log", (event, message = "") =>
+   electron .ipcMain .on ("log", (event, ... messages) =>
    {
-      process .stderr .write (message)
-      process .stderr .write ("\n")
+      console .log (... messages)
    })
 
-   electron .ipcMain .on ("error", (event, message = "") =>
+   electron .ipcMain .on ("warn", (event, format, ... messages) =>
    {
-      process .stderr .write (message)
-      process .stderr .write ("\n")
+      console .log (chalk .yellow (format), ... messages)
+   })
+
+   electron .ipcMain .on ("error", (event, format, ... messages) =>
+   {
+      console .log (chalk .red (format), ... messages)
    })
 
    electron .ipcMain .on ("exit", (event, code = 0) =>
