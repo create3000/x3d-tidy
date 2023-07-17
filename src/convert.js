@@ -45,7 +45,7 @@ async function convert (argv)
    .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
    .fail ((msg, error, yargs) =>
    {
-      console .log (msg)
+      console .error (msg)
       process .exit (1)
    })
    .option ("cwd",
@@ -133,13 +133,13 @@ async function convert (argv)
       const output = path .resolve (process .cwd (), args .output)
 
       if (path .extname (output))
-         fs .writeFileSync (output, getContents ({ ...options, type: path .extname (output) }))
+         fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }))
       else
-         console .log (getContents ({ ...options, type: path .basename (output) }))
+         console .log (getContents ({ ... options, type: path .basename (output) }))
    }
    else
    {
-      console .log (getContents ({ ...options, type: path .extname (input) }))
+      console .log (getContents ({ ... options, type: path .extname (input) }))
    }
 }
 
