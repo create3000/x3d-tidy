@@ -28,12 +28,12 @@ async function main (argv)
    {
       await convert (argv)
 
-      electron .ipcRenderer .send ("ready")
+      process .exit ()
    }
    catch (error)
    {
-      electron .ipcRenderer .send ("error", error .message || error)
-      electron .ipcRenderer .send ("exit", 1)
+      console .error (error .message || error)
+      process .exit (1)
    }
 }
 

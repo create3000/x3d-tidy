@@ -27,8 +27,6 @@ electron .app .whenReady () .then (async () =>
       },
    })
 
-   electron .ipcMain .on ("ready", () => electron .app .quit ())
-
    electron .ipcMain .on ("log", (event, messages) =>
    {
       console .log (... messages)
