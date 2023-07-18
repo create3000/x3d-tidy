@@ -73,7 +73,7 @@ function setComponents (scene, components)
    const oldComponents = Array .from (scene .getComponents ())
 
    for (const component of oldComponents)
-      scene .removeComponent (component)
+      scene .removeComponent (component .name)
 
    for (const component of components)
       scene .addComponent (component)
