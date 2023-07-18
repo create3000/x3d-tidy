@@ -29,19 +29,19 @@ electron .app .whenReady () .then (async () =>
 
    electron .ipcMain .on ("ready", () => electron .app .quit ())
 
-   electron .ipcMain .on ("log", (event, ... messages) =>
+   electron .ipcMain .on ("log", (event, messages) =>
    {
       console .log (... messages)
    })
 
-   electron .ipcMain .on ("warn", (event, format, ... messages) =>
+   electron .ipcMain .on ("warn", (event, messages) =>
    {
-      console .warn (colors .yellow (format), ... messages)
+      console .warn (... messages .map (string => colors .yellow (string)))
    })
 
-   electron .ipcMain .on ("error", (event, format, ... messages) =>
+   electron .ipcMain .on ("error", (event, messages) =>
    {
-      console .error (colors .red (format), ... messages)
+      console .error (... messages .map (string => colors .red (string)))
    })
 
    electron .ipcMain .on ("exit", (event, code = 0) =>
