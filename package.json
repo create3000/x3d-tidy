@@ -42,7 +42,7 @@
    "homepage": "https://www.npmjs.com/package/x3d-tidy",
    "dependencies": {
       "colors": "^1.4.0",
-      "electron": "^25.2.0",
+      "electron": "^25.3.0",
       "x_ite": "^8.10.1",
       "yargs": "^17.7.2"
    }
