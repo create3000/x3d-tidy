@@ -95,7 +95,7 @@ async function convert (argv)
    {
       type: "boolean",
       alias: "m",
-      description: "If set, remove metadata.",
+      description: "If set, remove metadata nodes.",
    })
    .help ()
    .alias ("help", "h") .argv;
