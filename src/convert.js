@@ -102,11 +102,13 @@ async function convert (argv)
 
    const
       Browser = X3D .createBrowser () .browser,
-      input   = path .resolve (args .cwd || process .cwd (), args .input)
+      input   = path .resolve (args .cwd, args .input)
 
    Browser .endUpdate ()
    Browser .setBrowserOption ("PrimitiveQuality", "HIGH");
    Browser .setBrowserOption ("TextureQuality",   "HIGH");
+
+   console .log (input)
 
    await Browser .loadComponents (Browser .getProfile ("Full"))
    await Browser .loadURL (new X3D .MFString (input))
@@ -130,7 +132,9 @@ async function convert (argv)
 
    if (args .output)
    {
-      const output = path .resolve (args .cwd || process .cwd (), args .output)
+      const output = path .resolve (args .cwd, args .output)
+
+      console .log (output)
 
       if (path .extname (output))
          fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }))
