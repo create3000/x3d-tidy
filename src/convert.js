@@ -15,7 +15,7 @@ const
 
 // Redirect console messages.
 
-process .exit  = (status)  => electron .ipcRenderer .send ("exit", status)
+process .exit  = (code)  => electron .ipcRenderer .send ("exit", code)
 console .log   = (... messages) => electron .ipcRenderer .send ("log",   messages)
 console .warn  = (... messages) => electron .ipcRenderer .send ("warn",  messages)
 console .error = (... messages) => electron .ipcRenderer .send ("error", messages)

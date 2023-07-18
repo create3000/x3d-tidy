@@ -44,7 +44,7 @@ electron .app .whenReady () .then (async () =>
 
    electron .ipcMain .on ("exit", (event, code = 0) =>
    {
-      process .exit (code)
+      electron .app .exit (code)
    })
 
    await window .loadFile (path .join (__dirname, "window.html"))
