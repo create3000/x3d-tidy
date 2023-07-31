@@ -98,15 +98,15 @@ async function convert (argv)
       description: "If set, remove metadata nodes.",
    })
    .help ()
-   .alias ("help", "h") .argv;
+   .alias ("help", "h") .argv
 
    const
       Browser = X3D .createBrowser () .browser,
       input   = path .resolve (args .cwd, args .input)
 
    Browser .endUpdate ()
-   Browser .setBrowserOption ("PrimitiveQuality", "HIGH");
-   Browser .setBrowserOption ("TextureQuality",   "HIGH");
+   Browser .setBrowserOption ("PrimitiveQuality", "HIGH")
+   Browser .setBrowserOption ("TextureQuality",   "HIGH")
 
    await Browser .loadComponents (Browser .getProfile ("Full"))
    await Browser .loadURL (new X3D .MFString (input))
@@ -161,7 +161,7 @@ function getContents ({ scene, type, style, precision, doublePrecision })
       case ".x3djz":
          return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN", precision: precision, doublePrecision: doublePrecision }))
       case ".html":
-         return getHTML (scene);
+         return getHTML (scene)
    }
 }
 
