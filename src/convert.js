@@ -1,17 +1,17 @@
 "use strict"
 
 const
-   X3D         = require ("x_ite"),
-   infer       = require ("./infer"),
-   pkg         = require ("../package.json"),
-   metadata    = require ("./metadata"),
-   electron    = require ("electron"),
-   yargs       = require ("yargs"),
-   url         = require ("url"),
-   path        = require ("path"),
-   fs          = require ("fs"),
-   zlib        = require ("zlib"),
-   DEBUG       = false
+   X3D      = require ("x_ite"),
+   infer    = require ("./infer"),
+   pkg      = require ("../package.json"),
+   metadata = require ("./metadata"),
+   electron = require ("electron"),
+   yargs    = require ("yargs"),
+   url      = require ("url"),
+   path     = require ("path"),
+   fs       = require ("fs"),
+   zlib     = require ("zlib"),
+   DEBUG    = false
 
 // Redirect console messages.
 
@@ -20,7 +20,7 @@ console .log   = (... messages) => electron .ipcRenderer .send ("log",   message
 console .warn  = (... messages) => electron .ipcRenderer .send ("warn",  messages)
 console .error = (... messages) => electron .ipcRenderer .send ("error", messages)
 
-electron .ipcRenderer .on ("convert", async (event, argv) => main (argv))
+electron .ipcRenderer .on ("main", async (event, argv) => main (argv))
 
 async function main (argv)
 {

@@ -2,10 +2,10 @@
    "name": "x3d-tidy",
    "version": "1.0.80",
    "description": "X3D Converter, Beautifier and Minimizer",
+   "main": "src/main.js",
    "bin": {
       "x3d-tidy": "bin/x3d-tidy.js"
    },
-   "main": "src/main.js",
    "scripts": {
       "start": "electron .",
       "test": "echo \"Error: no test specified\" && exit 1"

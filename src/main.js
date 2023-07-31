@@ -49,5 +49,5 @@ electron .app .whenReady () .then (async () =>
 
    await window .loadFile (path .join (__dirname, "window.html"))
 
-   window .webContents .send ("convert", process .argv)
+   window .webContents .send ("main", process .argv)
 })
