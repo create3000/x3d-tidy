@@ -100,6 +100,9 @@ async function convert (argv)
    .help ()
    .alias ("help", "h") .argv
 
+   if (args .help)
+      return
+
    const
       Browser = X3D .createBrowser () .browser,
       input   = path .resolve (args .cwd, args .input)
