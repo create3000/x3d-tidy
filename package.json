@@ -40,6 +40,13 @@
       "url": "https://github.com/create3000/x3d-tidy/issues"
    },
    "homepage": "https://www.npmjs.com/package/x3d-tidy",
+	"contributors": [
+		{
+			"name": "Holger Seelig",
+			"email": "holger.seelig@gmail.com",
+			"url": "https://github.com/create3000"
+		}
+	],
    "dependencies": {
       "colors": "^1.4.0",
       "electron": "^25.3.0",
