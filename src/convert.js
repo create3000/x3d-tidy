@@ -145,7 +145,7 @@ async function convert (argv)
 
 function getContents ({ scene, type, style, precision, doublePrecision })
 {
-   switch (type)
+   switch (type .toLowerCase ())
    {
       default:
       case ".x3d":
