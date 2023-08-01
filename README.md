@@ -40,6 +40,10 @@ If set, infer profile and components from used nodes.
 
 If set, remove metadata nodes.
 
+### -h
+
+Show help.
+
 ## Supported Input File Types
 
 | Encoding         | File Extension | MIME Type       |
