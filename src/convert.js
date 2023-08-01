@@ -65,6 +65,7 @@ async function convert (argv)
       type: "string",
       alias: "o",
       description: "Set output file. To output it to stdout use only the extension, e.g. '.x3dv'.",
+      demandOption: true,
    })
    .option ("style",
    {
