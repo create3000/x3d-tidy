@@ -6,6 +6,10 @@
    "bin": {
       "x3d-tidy": "bin/x3d-tidy.js"
    },
+   "files": [
+      "bin/*",
+      "src/*"
+   ],
    "scripts": {
       "start": "electron .",
       "test": "make tests"
