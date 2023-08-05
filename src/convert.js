@@ -153,17 +153,17 @@ function getContents ({ scene, type, style, precision, doublePrecision })
    {
       default:
       case ".x3d":
-         return scene .toXMLString ({ style: style || "TIDY", precision: precision, doublePrecision: doublePrecision })
+         return scene .toXMLString ({ style: style || "TIDY", precision, doublePrecision })
       case ".x3dz":
-         return zlib .gzipSync (scene .toXMLString ({ style: style || "CLEAN", precision: precision, doublePrecision: doublePrecision }))
+         return zlib .gzipSync (scene .toXMLString ({ style: style || "CLEAN", precision, doublePrecision }))
       case ".x3dv":
-         return scene .toVRMLString ({ style: style || "TIDY", precision: precision, doublePrecision: doublePrecision })
+         return scene .toVRMLString ({ style: style || "TIDY", precision, doublePrecision })
       case ".x3dvz":
-         return zlib .gzipSync (scene .toVRMLString ({ style: style || "CLEAN", precision: precision, doublePrecision: doublePrecision }))
+         return zlib .gzipSync (scene .toVRMLString ({ style: style || "CLEAN", precision, doublePrecision }))
       case ".x3dj":
-         return scene .toJSONString ({ style: style || "TIDY", precision: precision, doublePrecision: doublePrecision })
+         return scene .toJSONString ({ style: style || "TIDY", precision, doublePrecision })
       case ".x3djz":
-         return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN", precision: precision, doublePrecision: doublePrecision }))
+         return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN", precision, doublePrecision }))
       case ".html":
          return getHTML (scene)
    }
