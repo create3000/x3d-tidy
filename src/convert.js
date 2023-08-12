@@ -195,7 +195,7 @@ x3d-canvas {
   <body>
     <h1>${path .basename (url .fileURLToPath (scene .worldURL))}</h1>
     <x3d-canvas>
-${scene .toXMLString ({ html: true, indent: " " .repeat (6) })}
+${scene .toXMLString ({ html: true, indent: " " .repeat (6) }) .trimEnd ()}
     </x3d-canvas>
     <p>Made with <a href="https://www.npmjs.com/package/x3d-tidy" target="_blank">x3d-tidy.</a></p>
   </body>
