@@ -109,6 +109,7 @@ async function convert (argv)
       input   = path .resolve (args .cwd, args .input)
 
    Browser .endUpdate ()
+   Browser .setBrowserOption ("LoadUrlObjects",   false);
    Browser .setBrowserOption ("PrimitiveQuality", "HIGH")
    Browser .setBrowserOption ("TextureQuality",   "HIGH")
 
