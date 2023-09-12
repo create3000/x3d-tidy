@@ -40,6 +40,10 @@ If set, infer profile and components from used nodes.
 
 If set, remove metadata nodes.
 
+### -v
+
+Show version.
+
 ### -h
 
 Show help.

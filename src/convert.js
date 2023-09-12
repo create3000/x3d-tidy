@@ -2,8 +2,8 @@
 
 const
    X3D      = require ("x_ite"),
-   infer    = require ("./infer"),
    pkg      = require ("../package.json"),
+   infer    = require ("./infer"),
    metadata = require ("./metadata"),
    electron = require ("electron"),
    yargs    = require ("yargs"),
@@ -43,6 +43,8 @@ async function convert (argv)
    .scriptName ("x3d-tidy")
    .usage ("$0 args")
    .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
+   .version (pkg .version)
+   .alias ("v", "version")
    .fail ((msg, error, yargs) =>
    {
       console .error (msg)
