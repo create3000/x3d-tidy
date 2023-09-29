@@ -174,7 +174,7 @@ function getContents ({ scene, type, style, precision, doublePrecision })
 
 function getHTML (scene)
 {
-   return `<!DOCTYPE html>
+   return /* html */ `<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
