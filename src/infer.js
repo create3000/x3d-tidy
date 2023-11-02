@@ -27,7 +27,7 @@ function getUsedComponents (scene)
       if (node .getScene () !== scene)
          return
 
-      components .add (node .getComponentName ())
+      components .add (node .getComponentInfo () .name)
    })
 
    return components
