@@ -1,6 +1,6 @@
 {
    "name": "x3d-tidy",
-   "version": "1.0.102",
+   "version": "1.0.103",
    "description": "X3D Converter, Beautifier and Minimizer",
    "main": "src/main.js",
    "bin": {
