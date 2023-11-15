@@ -118,20 +118,24 @@ async function convert (argv)
    await Browser .loadComponents (Browser .getProfile ("Full"));
    await Browser .loadURL (new X3D .MFString (input));
 
-   if (!Browser .currentScene .getMetaData ("generator") ?.some (value => value .startsWith (pkg .name)))
-      Browser .currentScene .addMetaData ("generator", `${pkg .name} V${pkg .version}, ${pkg .homepage}`);
+   const
+      scene     = Browser .currentScene,
+      generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
 
-   Browser .currentScene .setMetaData ("modified", new Date () .toUTCString ());
+   generator .push (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
+
+   scene .setMetaData ("generator", generator);
+   scene .setMetaData ("modified", new Date () .toUTCString ());
 
    if (args .infer)
-      infer (Browser .currentScene);
+      infer (scene);
 
    if (args .metadata)
-      metadata (Browser .currentScene);
+      metadata (scene);
 
    const options =
    {
-      scene: Browser .currentScene,
+      scene: scene,
       style: args .style,
       precision: args .float,
       doublePrecision: args .double,
