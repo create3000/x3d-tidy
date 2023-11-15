@@ -1,17 +1,17 @@
-"use strict"
+"use strict";
 
 const
    electron = require ("electron"),
    path     = require ("path"),
-   colors   = require ("colors")
+   colors   = require ("colors");
 
-process .env .ELECTRON_DISABLE_SECURITY_WARNINGS = "true"
-// process .env .ELECTRON_ENABLE_LOGGING            = 1
+process .env .ELECTRON_DISABLE_SECURITY_WARNINGS = "true";
+// process .env .ELECTRON_ENABLE_LOGGING            = 1;
 
 if (process .platform === "darwin")
 {
-   electron .app .setActivationPolicy ("accessory")
-   electron .app .dock .hide ()
+   electron .app .setActivationPolicy ("accessory");
+   electron .app .dock .hide ();
 }
 
 electron .app .whenReady () .then (async () =>
@@ -25,29 +25,29 @@ electron .app .whenReady () .then (async () =>
          nodeIntegration: true,
          contextIsolation: false,
       },
-   })
+   });
 
    electron .ipcMain .on ("log", (event, messages) =>
    {
-      console .log (... messages)
-   })
+      console .log (... messages);
+   });
 
    electron .ipcMain .on ("warn", (event, messages) =>
    {
-      console .warn (... messages .map (string => colors .yellow (string)))
-   })
+      console .warn (... messages .map (string => colors .yellow (string)));
+   });
 
    electron .ipcMain .on ("error", (event, messages) =>
    {
-      console .error (... messages .map (string => colors .red (string)))
-   })
+      console .error (... messages .map (string => colors .red (string)));
+   });
 
    electron .ipcMain .on ("exit", (event, code = 0) =>
    {
-      electron .app .exit (code)
-   })
+      electron .app .exit (code);
+   });
 
-   await window .loadFile (path .join (__dirname, "window.html"))
+   await window .loadFile (path .join (__dirname, "window.html"));
 
-   window .webContents .send ("main", process .argv)
+   window .webContents .send ("main", process .argv);
 })

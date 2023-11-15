@@ -1,8 +1,8 @@
-"use strict"
+"use strict";
 
 const
    X3D      = require ("x_ite"),
-   Traverse = require ("./traverse")
+   Traverse = require ("./traverse");
 
 module .exports = function metadata (scene)
 {
@@ -10,5 +10,5 @@ module .exports = function metadata (scene)
    {
       if (node .getType () .includes (X3D .X3DConstants .X3DNode))
          node .getField ("metadata") .setValue (null);
-   })
-}
+   });
+};
