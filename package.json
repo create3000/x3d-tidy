@@ -12,7 +12,8 @@
    ],
    "scripts": {
       "start": "electron .",
-      "test": "make tests"
+      "test": "make tests",
+      "publish": "node build/publish.js"
    },
    "repository": {
       "type": "git",
