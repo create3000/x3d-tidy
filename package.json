@@ -13,7 +13,7 @@
    "scripts": {
       "start": "electron .",
       "test": "make tests",
-      "release": "node build/publish.js"
+      "release": "node build/release.js"
    },
    "repository": {
       "type": "git",
