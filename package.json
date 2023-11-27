@@ -57,5 +57,8 @@
       "electron": "^27.1.2",
       "x_ite": "^9.1.5",
       "yargs": "^17.7.2"
+   },
+   "devDependencies": {
+      "shell-tools": "^1.0.2"
    }
 }
