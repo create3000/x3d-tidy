@@ -80,13 +80,13 @@ async function convert (argv)
    {
       type: "number",
       alias: "d",
-      description: "Set double precision, default is 15.",
+      description: "Set double precision, default is 17.",
    })
    .option ("float",
    {
       type: "number",
       alias: "f",
-      description: "Set float precision, default is 7.",
+      description: "Set float precision, default is 8.",
    })
    .option ("infer",
    {
