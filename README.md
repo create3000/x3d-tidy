@@ -26,11 +26,11 @@ Set output style, default is "TIDY".
 
 ### -d *integer*
 
-Set double precision, default is 17.
+Set double precision, default is 15.
 
 ### -f *integer*
 
-Set float precision, default is 8.
+Set float precision, default is 7.
 
 ### -r
 
