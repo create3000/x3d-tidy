@@ -20,7 +20,7 @@ electron .app .whenReady () .then (async () =>
       show: false,
       skipTaskbar: true,
       webPreferences: {
-         offscreen: true,
+         // offscreen: true,
          preload: path .join (__dirname, "window.js"),
          nodeIntegration: true,
          contextIsolation: false,
