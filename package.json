@@ -12,7 +12,7 @@
    ],
    "scripts": {
       "start": "electron .",
-      "test": "make tests",
+      "test": "node build/test.js",
       "release": "node build/release.js"
    },
    "repository": {
