@@ -103,6 +103,9 @@ async function convert (argv)
    .help ()
    .alias ("help", "h") .argv;
 
+   if (args .version)
+      return;
+
    if (args .help)
       return;
 
