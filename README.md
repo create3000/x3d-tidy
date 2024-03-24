@@ -1,5 +1,9 @@
 # x3d-tidy
 
+[![NPM Version](https://img.shields.io/npm/v/x3d-tidy)](https://www.npmjs.com/package/x3d-tidy)
+[![Build Size](https://badgen.net/bundlephobia/minzip/x3d-tidy)](#)
+[![NPM Downloads](https://img.shields.io/npm/dw/x3d-tidy)](https://npmtrends.com/x3d-tidy)
+
 X3D converter, beautifier and minimizer
 
 ## Synopsis
