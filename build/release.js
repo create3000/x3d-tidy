@@ -48,7 +48,7 @@ function main ()
 	systemSync (`git push origin`);
 
 	// npx
-	systemSync (`npx --yes x3d-tidy -v`);
+	systemSync (`cd ~; npx --yes x3d-tidy -v`);
 }
 
 main ();
