@@ -46,9 +46,6 @@ function main ()
 	systemSync (`git checkout development`);
 	systemSync (`git merge main`);
 	systemSync (`git push origin`);
-
-	// npx
-	systemSync (`cd ~; npx --yes x3d-tidy -v`);
 }
 
 main ();
