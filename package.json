@@ -54,11 +54,11 @@
    ],
    "dependencies": {
       "colors": "^1.4.0",
-      "electron": "^29.1.5",
+      "electron": "^29.1.6",
       "x_ite": "^9.4.3",
       "yargs": "^17.7.2"
    },
    "devDependencies": {
-      "shell-tools": "^1.1.7"
+      "shell-tools": "^1.1.9"
    }
 }
