@@ -1,9 +1,5 @@
 # x3d-tidy
 
-[![NPM Version](https://img.shields.io/npm/v/x3d-tidy)](https://www.npmjs.com/package/x3d-tidy)
-[![NPM Downloads](https://img.shields.io/npm/dw/x3d-tidy)](https://npmtrends.com/x3d-tidy)
-[![DeepScan grade](https://deepscan.io/api/teams/23540/projects/26815/branches/855448/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=23540&pid=26815&bid=855448)
-
 X3D converter, beautifier and minimizer
 
 ## Synopsis
