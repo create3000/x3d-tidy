@@ -13,6 +13,7 @@ module .exports = function metadata (scene)
 
       const metadata = node .getField ("metadata");
 
+      // Handle externproto not loaded case.
       if (!metadata .getValue ())
          return;
 
