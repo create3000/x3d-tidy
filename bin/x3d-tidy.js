@@ -9,7 +9,7 @@ const cmd = os .platform () === "win32" ? "npm.cmd" : "npm";
 
 process .chdir (path .resolve (__dirname, ".."));
 
-const p = spawn (cmd, ["start", "--silent", "--", "--cwd", cwd, ... process .argv .slice (2)]);
+const p = spawn (cmd, ["start", "--silent", "--", "--cwd", cwd, ... process .argv .slice (2)], { shell: true });
 
 p .stdout .pipe (process .stdout);
 p .stderr .pipe (process .stderr);
