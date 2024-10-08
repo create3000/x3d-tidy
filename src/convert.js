@@ -111,7 +111,7 @@ async function convert (argv)
 
    const
       Browser = X3D .createBrowser () .browser,
-      input   = path .resolve (args .cwd, args .input);
+      input   = new URL (args .input, url .pathToFileURL (path .join (args .cwd, "/")));
 
    Browser .endUpdate ();
    Browser .setBrowserOption ("LoadUrlObjects",   false);
@@ -205,7 +205,7 @@ x3d-canvas {
     </style>
   </head>
   <body>
-    <h1>${path .basename (url .fileURLToPath (scene .worldURL))}</h1>
+    <h1>${path .basename (new URL (scene .worldURL) .pathname)}</h1>
     <x3d-canvas>
 ${scene .toXMLString ({ html: true, indent: " " .repeat (6) }) .trimEnd ()}
     </x3d-canvas>
