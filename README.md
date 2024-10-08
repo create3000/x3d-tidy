@@ -18,7 +18,7 @@ You can run *x3d-tidy* without installing it using **npx**:
 
 ### -i *file*
 
-Set input file. This can be a local file name or a URL.
+Set input file. This can be a local file path or a URL.
 
 ### -o *file*
 
