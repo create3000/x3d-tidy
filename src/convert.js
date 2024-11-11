@@ -110,7 +110,7 @@ async function convert (argv)
       return;
 
    const
-      Browser = X3D .createBrowser () .browser,
+      Browser = X3D .getBrowser ("#browser"),
       input   = new URL (args .input, url .pathToFileURL (path .join (args .cwd, "/")));
 
    Browser .endUpdate ();
