@@ -158,7 +158,7 @@ async function convert (argv)
       console .log (getContents ({ ... options, type: path .extname (input) }));
    }
 
-   scene .dispose ();
+   Browser .dispose ();
 }
 
 function getContents ({ scene, type, style, precision, doublePrecision })
