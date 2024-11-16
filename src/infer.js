@@ -2,7 +2,7 @@
 
 const
    X3D      = require ("x_ite"),
-   Traverse = require ("./traverse");
+   Traverse = require ("x3d-traverse") (X3D);
 
 module .exports = function inferProfileAndComponents (scene)
 {
@@ -19,16 +19,16 @@ function getUsedComponents (scene)
 {
    const components = new Set ();
 
-   Traverse .traverse (scene, Traverse .PROTO_DECLARATIONS | Traverse .PROTO_DECLARATION_BODY | Traverse .ROOT_NODES | Traverse .PROTOTYPE_INSTANCES, (node) =>
+   for (const node of scene .traverse (Traverse .PROTO_DECLARATIONS | Traverse .PROTO_DECLARATION_BODY | Traverse .ROOT_NODES | Traverse .PROTOTYPE_INSTANCES))
    {
-      if (!node .getType () .includes (X3D .X3DConstants .X3DNode))
+      if (!(node instanceof X3D .SFNode))
+         continue;
+
+      if (node .getValue () .getScene () !== scene)
          return;
 
-      if (node .getScene () !== scene)
-         return;
-
-      components .add (node .getComponentInfo () .name);
-   })
+      components .add (node .getValue () .getComponentInfo () .name);
+   }
 
    return components;
 }

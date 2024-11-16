@@ -2,21 +2,19 @@
 
 const
    X3D      = require ("x_ite"),
-   Traverse = require ("./traverse");
+   Traverse = require ("x3d-traverse") (X3D);
 
 module .exports = function metadata (scene)
 {
-   Traverse .traverse (scene, Traverse .PROTO_DECLARATIONS | Traverse .PROTO_DECLARATION_BODY | Traverse .ROOT_NODES, (node) =>
+   for (const node of scene .traverse (Traverse .PROTO_DECLARATIONS | Traverse .PROTO_DECLARATION_BODY | Traverse .ROOT_NODES))
    {
-      if (!node .getType () .includes (X3D .X3DConstants .X3DNode))
-         return;
-
-      const metadata = node .getField ("metadata");
+      if (!(node instanceof X3D .SFNode))
+         continue;
 
       // Handle externproto not loaded case.
-      if (!metadata .getValue ())
-         return;
+      if (!node .metadata)
+         continue;
 
-      metadata .setValue (null);
-   });
+      node .metadata = null;
+   }
 };
