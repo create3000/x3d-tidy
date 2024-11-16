@@ -25,7 +25,7 @@ function getUsedComponents (scene)
          continue;
 
       if (node .getValue () .getScene () !== scene)
-         return;
+         continue;
 
       components .add (node .getValue () .getComponentInfo () .name);
    }
