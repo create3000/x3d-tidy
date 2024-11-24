@@ -54,8 +54,8 @@
    ],
    "dependencies": {
       "colors": "^1.4.0",
-      "x_ite": "^10.5.12",
-      "x_ite-node": "^1.0.6",
+      "x_ite": "^10.5.13",
+      "x_ite-node": "^1.0.8",
       "x3d-traverse": "^1.0.5",
       "yargs": "^17.7.2"
    },
