@@ -3,8 +3,8 @@
 <X3D profile='Interchange' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-4.0.xsd'>
   <head>
     <component name='PointingDeviceSensor' level='1'/>
-    <meta name='generator' content='x3d-tidy V1.0.175, https://www.npmjs.com/package/x3d-tidy'/>
-    <meta name='modified' content='Sat, 16 Nov 2024 15:34:54 GMT'/>
+    <meta name='generator' content='x3d-tidy V1.0.177, https://www.npmjs.com/package/x3d-tidy'/>
+    <meta name='modified' content='Sun, 24 Nov 2024 11:58:43 GMT'/>
   </head>
   <Scene>
     <Background
