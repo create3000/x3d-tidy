@@ -11,7 +11,7 @@
       "src/*"
    ],
    "scripts": {
-      "start": "electron .",
+      "start": "node bin/x3d-tidy.js",
       "test": "node build/test.js",
       "release": "node build/release.js"
    },

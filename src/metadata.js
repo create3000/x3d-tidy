@@ -1,7 +1,7 @@
 "use strict";
 
 const
-   X3D      = require ("x_ite"),
+   X3D      = require ("x_ite-node"),
    Traverse = require ("x3d-traverse") (X3D);
 
 module .exports = function metadata (scene)
