@@ -1,53 +1,204 @@
 "use strict";
 
 const
-   electron = require ("electron"),
+   X3D      = require ("x_ite-node"),
+   pkg      = require ("../package.json"),
+   infer    = require ("./infer"),
+   metadata = require ("./metadata"),
+   yargs    = require ("yargs"),
+   url      = require ("url"),
    path     = require ("path"),
-   colors   = require ("colors");
+   fs       = require ("fs"),
+   zlib     = require ("zlib"),
+   DEBUG    = false;
 
-process .env .ELECTRON_DISABLE_SECURITY_WARNINGS = "true";
-// process .env .ELECTRON_ENABLE_LOGGING            = 1;
+main ();
 
-if (process .platform === "darwin")
+async function main ()
 {
-   electron .app .setActivationPolicy ("accessory");
-   electron .app .dock .hide ();
+   try
+   {
+      await convert ();
+
+      process .exit ();
+   }
+   catch (error)
+   {
+      console .error (error .message || error);
+      process .exit (1);
+   }
 }
 
-electron .app .whenReady () .then (async () =>
+async function convert ()
 {
-   const window = new electron .BrowserWindow ({
-      show: false,
-      skipTaskbar: true,
-      webPreferences: {
-         // offscreen: true,
-         preload: path .join (__dirname, "window.js"),
-         nodeIntegration: true,
-         contextIsolation: false,
-      },
-   });
-
-   electron .ipcMain .on ("log", (event, messages) =>
+   const args = yargs (process .argv)
+   .scriptName ("x3d-tidy")
+   .usage ("$0 args")
+   .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
+   .version (pkg .version)
+   .alias ("v", "version")
+   .fail ((msg, error, yargs) =>
    {
-      console .log (... messages);
-   });
-
-   electron .ipcMain .on ("warn", (event, messages) =>
+      console .error (msg);
+      process .exit (1);
+   })
+   .option ("input",
    {
-      console .warn (... messages .map (string => colors .yellow (string)));
-   });
-
-   electron .ipcMain .on ("error", (event, messages) =>
+      type: "string",
+      alias: "i",
+      description: "Set input file.",
+      demandOption: true,
+   })
+   .option ("output",
    {
-      console .error (... messages .map (string => colors .red (string)));
-   });
-
-   electron .ipcMain .on ("exit", (event, code = 0) =>
+      type: "string",
+      alias: "o",
+      description: "Set output file. To output it to stdout use only the extension, e.g. '.x3dv'.",
+      demandOption: true,
+   })
+   .option ("style",
    {
-      electron .app .exit (code);
-   });
+      type: "string",
+      alias: "s",
+      description: "Set output style, default is 'TIDY'.",
+      choices: ["CLEAN", "SMALL", "COMPACT", "TIDY"],
+   })
+   .option ("double",
+   {
+      type: "number",
+      alias: "d",
+      description: "Set double precision, default is 15.",
+   })
+   .option ("float",
+   {
+      type: "number",
+      alias: "f",
+      description: "Set float precision, default is 7.",
+   })
+   .option ("infer",
+   {
+      type: "boolean",
+      alias: "r",
+      description: "If set, infer profile and components from used nodes.",
+   })
+   .option ("metadata",
+   {
+      type: "boolean",
+      alias: "m",
+      description: "If set, remove metadata nodes.",
+   })
+   .help ()
+   .alias ("help", "h") .argv;
 
-   await window .loadFile (path .join (__dirname, "window.html"));
+   if (args .version)
+      return;
 
-   window .webContents .send ("main", process .argv);
-})
+   if (args .help)
+      return;
+
+   const
+      Browser = X3D .createBrowser () .browser,
+      input   = new URL (args .input, url .pathToFileURL (path .join (process .cwd (), "/")));
+
+   Browser .endUpdate ();
+   Browser .setBrowserOption ("LoadUrlObjects",   false);
+   Browser .setBrowserOption ("PrimitiveQuality", "HIGH");
+   Browser .setBrowserOption ("TextureQuality",   "HIGH");
+
+   await Browser .loadComponents (Browser .getProfile ("Full"));
+   await Browser .loadURL (new X3D .MFString (input));
+
+   const
+      scene     = Browser .currentScene,
+      generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
+
+   generator .push (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
+
+   scene .setMetaData ("generator", generator);
+   scene .setMetaData ("modified", new Date () .toUTCString ());
+
+   if (args .infer)
+      infer (scene);
+
+   if (args .metadata)
+      metadata (scene);
+
+   const options =
+   {
+      scene: scene,
+      style: args .style,
+      precision: args .float,
+      doublePrecision: args .double,
+   };
+
+   if (args .output)
+   {
+      const output = path .resolve (process .cwd (), args .output);
+
+      if (path .extname (output))
+         fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }));
+      else
+         console .log (getContents ({ ... options, type: path .basename (output) }));
+   }
+   else
+   {
+      console .log (getContents ({ ... options, type: path .extname (input) }));
+   }
+
+   Browser .dispose ();
+}
+
+function getContents ({ scene, type, style, precision, doublePrecision })
+{
+   switch (type .toLowerCase ())
+   {
+      default:
+      case ".x3d":
+         return scene .toXMLString ({ style: style || "TIDY", precision, doublePrecision });
+      case ".x3dz":
+         return zlib .gzipSync (scene .toXMLString ({ style: style || "CLEAN", precision, doublePrecision }));
+      case ".x3dv":
+         return scene .toVRMLString ({ style: style || "TIDY", precision, doublePrecision });
+      case ".x3dvz":
+         return zlib .gzipSync (scene .toVRMLString ({ style: style || "CLEAN", precision, doublePrecision }));
+      case ".x3dj":
+         return scene .toJSONString ({ style: style || "TIDY", precision, doublePrecision });
+      case ".x3djz":
+         return zlib .gzipSync (scene .toJSONString ({ style: style || "CLEAN", precision, doublePrecision }));
+      case ".html":
+         return getHTML (scene);
+   }
+}
+
+function getHTML (scene)
+{
+   return /* html */ `<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/x_ite@latest/dist/x_ite.min.js"></script>
+    <style>
+body {
+  background-color: rgb(21, 22, 24);
+  color: rgb(108, 110, 113);
+}
+
+a {
+  color: rgb(106, 140, 191);
+}
+
+x3d-canvas {
+  width: 768px;
+  height: 432px;
+}
+    </style>
+  </head>
+  <body>
+    <h1>${path .basename (new URL (scene .worldURL) .pathname)}</h1>
+    <x3d-canvas>
+${scene .toXMLString ({ html: true, indent: " " .repeat (6) }) .trimEnd ()}
+    </x3d-canvas>
+    <p>Made with <a href="https://www.npmjs.com/package/x3d-tidy" target="_blank">x3d-tidy.</a></p>
+  </body>
+</html>`;
+}
