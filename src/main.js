@@ -96,9 +96,12 @@ async function convert ()
    if (args .help)
       return;
 
+   // Fixes an issue with URL, if it matches a drive letter.
+   args .input = args .input .replace (/^([A-Za-z]:)/, "file://$1");
+
    const
       Browser = X3D .createBrowser () .browser,
-      input   = new URL (args .input .replace (/^([A-Za-z]:)/, "file://$1"), url .pathToFileURL (path .join (process .cwd (), "/")));
+      input   = new URL (args .input, url .pathToFileURL (path .join (process .cwd (), "/")));
 
    Browser .endUpdate ();
    Browser .setBrowserOption ("LoadUrlObjects",   false);
