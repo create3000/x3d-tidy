@@ -98,7 +98,7 @@ async function convert ()
 
    const
       Browser = X3D .createBrowser () .browser,
-      input   = new URL (args .input, url .pathToFileURL (path .join (process .cwd (), "/")));
+      input   = new URL (args .input .replace (/^(\w:)/, "file://$1"), url .pathToFileURL (path .join (process .cwd (), "/")));
 
    Browser .endUpdate ();
    Browser .setBrowserOption ("LoadUrlObjects",   false);
