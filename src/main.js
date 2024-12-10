@@ -34,7 +34,7 @@ async function convert ()
    const args = yargs (process .argv .slice (2))
    .scriptName ("x3d-tidy")
    .usage ("$0 [options] input-file output-file [input-file output-file ...]")
-   .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
+   .command ("X3D converter, beautifier and minimizer")
    .version (pkg .version)
    .alias ("v", "version")
    .fail ((msg, error, yargs) =>
