@@ -16,13 +16,13 @@ You can run *x3d-tidy* without installing it using **npx**:
 
 **x3d-tidy** interprets the following options when it is invoked:
 
-### -i *file*
+### -i *file* ...
 
-Set input file. This can be either a local file path or a URL.
+Set input file(s). This can be either a local file path or a URL. If there are less input files than output files, the last input file is uses for the remaining output files.
 
-### -o *file*
+### -o *file* ...
 
-Set output file.
+Set output file(s).
 
 ### -s *[**TIDY**, COMPACT, SMALL, CLEAN]*
 
