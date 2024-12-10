@@ -46,7 +46,7 @@ async function convert ()
    {
       type: "string",
       alias: "i",
-      description: "Set input file(s). If there are less input files than output files, the last input file is uses for the remaining output files.",
+      description: "Set input file(s). If there are less input files than output files, the last input file is used for the remaining output files.",
       array: true,
    })
    .option ("output",
