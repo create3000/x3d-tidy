@@ -31,7 +31,7 @@ async function main ()
 
 async function convert ()
 {
-   const args = yargs (process .argv)
+   const args = yargs (process .argv .slice (2))
    .scriptName ("x3d-tidy")
    .usage ("$0 args")
    .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
@@ -47,14 +47,12 @@ async function convert ()
       type: "string",
       alias: "i",
       description: "Set input file.",
-      demandOption: true,
    })
    .option ("output",
    {
       type: "string",
       alias: "o",
       description: "Set output file. To output it to stdout use only the extension, e.g. '.x3dv'.",
-      demandOption: true,
    })
    .option ("style",
    {
@@ -96,12 +94,28 @@ async function convert ()
    if (args .help)
       return;
 
-   // Fixes an issue with URL, if it matches a drive letter.
-   args .input = args .input .replace (/^([A-Za-z]:)/, "file://$1");
+   if (!Array .isArray (args .input))
+      args .input = args .input === undefined ? [ ] : [args .input];
 
-   const
-      Browser = X3D .createBrowser () .browser,
-      input   = new URL (args .input, url .pathToFileURL (path .join (process .cwd (), "/")));
+   if (!Array .isArray (args .output))
+      args .output = args .output === undefined ? [ ] : [args .output];
+
+   if (args .input .length === 0 && args .output .length === 0)
+   {
+      if (args ._ .length % 2 === 0)
+      {
+         for (let i = 0; i < args ._ .length; i += 2)
+         {
+            args .input  .push (args ._ [i + 0]);
+            args .output .push (args ._ [i + 1]);
+         }
+      }
+   }
+
+   // Fixes an issue with URL, if it matches a drive letter.
+   args .input = args .input .map (input => input .replace (/^([A-Za-z]:)/, "file://$1"));
+
+   const Browser = X3D .createBrowser () .browser;
 
    Browser .endUpdate ();
    Browser .setBrowserOption ("LoadUrlObjects",   false);
@@ -109,43 +123,49 @@ async function convert ()
    Browser .setBrowserOption ("TextureQuality",   "HIGH");
 
    await Browser .loadComponents (Browser .getProfile ("Full"));
-   await Browser .loadURL (new X3D .MFString (input));
 
-   const
-      scene     = Browser .currentScene,
-      generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
-
-   generator .push (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
-
-   scene .setMetaData ("generator", generator);
-   scene .setMetaData ("modified", new Date () .toUTCString ());
-
-   if (args .infer)
-      infer (scene);
-
-   if (args .metadata)
-      metadata (scene);
-
-   const options =
+   for (const i of args .output .keys ())
    {
-      scene: scene,
-      style: args .style,
-      precision: args .float,
-      doublePrecision: args .double,
-   };
+      const input = new URL (args .input [i] ?? args .input .at (-1), url .pathToFileURL (path .join (process .cwd (), "/")));
 
-   if (args .output)
-   {
-      const output = path .resolve (process .cwd (), args .output);
+      await Browser .loadURL (new X3D .MFString (input));
 
-      if (path .extname (output))
-         fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }));
+      const
+         scene     = Browser .currentScene,
+         generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
+
+      generator .push (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
+
+      scene .setMetaData ("generator", generator);
+      scene .setMetaData ("modified", new Date () .toUTCString ());
+
+      if (args .infer)
+         infer (scene);
+
+      if (args .metadata)
+         metadata (scene);
+
+      const options =
+      {
+         scene: scene,
+         style: args .style,
+         precision: args .float,
+         doublePrecision: args .double,
+      };
+
+      if (args .output [i])
+      {
+         const output = path .resolve (process .cwd (), args .output [i]);
+
+         if (path .extname (output))
+            fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }));
+         else
+            console .log (getContents ({ ... options, type: path .basename (output) }));
+      }
       else
-         console .log (getContents ({ ... options, type: path .basename (output) }));
-   }
-   else
-   {
-      console .log (getContents ({ ... options, type: path .extname (input) }));
+      {
+         console .log (getContents ({ ... options, type: path .extname (input) }));
+      }
    }
 
    Browser .dispose ();
