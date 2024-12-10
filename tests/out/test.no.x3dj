@@ -1,18 +1,43 @@
 { "X3D": {
     "encoding": "UTF-8",
-    "@profile": "Interactive",
+    "@profile": "Interchange",
     "@version": "4.0",
     "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
     "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
     "head": {
       "meta": [
         {
+          "@name": "created",
+          "@content": "Tue, 10 Dec 2024 12:50:51 GMT"
+        },
+        {
+          "@name": "creator",
+          "@content": "Holger Seelig"
+        },
+        {
+          "@name": "generator",
+          "@content": "Sunrize X3D Editor V1.7.35, https://create3000.github.io/sunrize/"
+        },
+        {
           "@name": "generator",
           "@content": "x3d-tidy V2.0.7, https://www.npmjs.com/package/x3d-tidy"
         },
         {
           "@name": "modified",
-          "@content": "Tue, 10 Dec 2024 09:50:06 GMT"
+          "@content": "Tue, 10 Dec 2024 19:35:52 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        }
+      ],
+      "unit": [
+        {
+          "@category": "angle",
+          "@name": "degree",
+          "@conversionFactor": 0.017453292519943295
         }
       ]
     },
@@ -28,7 +53,7 @@
         { "Viewpoint":
           {
             "@position": [ 4.75079, 5.5764, 6.80689 ],
-            "@orientation": [ -0.67979594907481, 0.70155548858341, 0.2137694179717, 0.842769006819 ]
+            "@orientation": [ -0.67979594907481, 0.70155548858341, 0.2137694179717, 48.2871071951608 ]
           }
         },
         { "TouchSensor":
@@ -40,46 +65,94 @@
             "@description": "Box Geometry"
           }
         },
-        { "Shape":
+        { "Transform":
           {
-            "-metadata": { "MetadataSet":
-              {
-                "-value": [
-                  { "MetadataBoolean":
+            "@DEF": "_1",
+            "-children": [
+              { "Shape":
+                {
+                  "-metadata": { "MetadataSet":
                     {
-                    }
-                  }
-                ]
-              }
-            },
-            "-appearance": { "Appearance":
-              {
-                "-material": { "Material":
-                  {
-                    "@diffuseColor": [ 0, 0.5, 1 ],
-                    "-diffuseTexture": { "PixelTexture":
-                      {
-                        "@image": [
-                          2, 2, 1,
-                            255, 0,
-                            0, 255
-                        ],
-                        "-textureProperties": { "TextureProperties":
+                      "-value": [
+                        { "MetadataBoolean":
                           {
-                            "@boundaryModeS": "CLAMP_TO_EDGE",
-                            "@boundaryModeT": "CLAMP_TO_EDGE"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 0.5, 1 ],
+                          "-diffuseTexture": { "PixelTexture":
+                            {
+                              "@image": [
+                                2, 2, 1,
+                                  255, 0,
+                                  0, 255
+                              ],
+                              "-textureProperties": { "TextureProperties":
+                                {
+                                  "@boundaryModeS": "CLAMP_TO_EDGE",
+                                  "@boundaryModeT": "CLAMP_TO_EDGE"
+                                }
+                              }
+                            }
                           }
                         }
                       }
                     }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
                   }
                 }
               }
-            },
-            "-geometry": { "Box":
-              {
-              }
-            }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "_2",
+            "@loop": true
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "_3",
+            "@key": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 1, 0,
+              0, 0, 1, 90,
+              0, 0, 1, 180,
+              0, 0, 1, 270,
+              0, 0, 1, 0
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "_2",
+            "@fromField": "fraction_changed",
+            "@toNode": "_3",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "_3",
+            "@fromField": "value_changed",
+            "@toNode": "_1",
+            "@toField": "set_rotation"
           }
         }
       ]
