@@ -46,13 +46,15 @@ async function convert ()
    {
       type: "string",
       alias: "i",
-      description: "Set input file.",
+      description: "Set input file(s).",
+      array: true,
    })
    .option ("output",
    {
       type: "string",
       alias: "o",
-      description: "Set output file. To output it to stdout use only the extension, e.g. '.x3dv'.",
+      description: "Set output file(s). To output it to stdout use only the extension, e.g. '.x3dv'.",
+      array: true,
    })
    .option ("style",
    {
@@ -94,11 +96,8 @@ async function convert ()
    if (args .help)
       return;
 
-   if (!Array .isArray (args .input))
-      args .input = args .input === undefined ? [ ] : [args .input];
-
-   if (!Array .isArray (args .output))
-      args .output = args .output === undefined ? [ ] : [args .output];
+   args .input  ??= [ ];
+   args .output ??= [ ];
 
    if (args .input .length === 0 && args .output .length === 0)
    {
@@ -115,7 +114,9 @@ async function convert ()
    // Fixes an issue with URL, if it matches a drive letter.
    args .input = args .input .map (input => input .replace (/^([A-Za-z]:)/, "file://$1"));
 
-   const Browser = X3D .createBrowser () .browser;
+   const
+      Browser = X3D .createBrowser () .browser,
+      scenes  = new Map ();
 
    Browser .endUpdate ();
    Browser .setBrowserOption ("LoadUrlObjects",   false);
@@ -126,14 +127,12 @@ async function convert ()
 
    for (const i of args .output .keys ())
    {
-      const input = new URL (args .input [i] ?? args .input .at (-1), url .pathToFileURL (path .join (process .cwd (), "/")));
-
-      await Browser .loadURL (new X3D .MFString (input));
-
       const
-         scene     = Browser .currentScene,
+         input     = new URL (args .input [i] ?? args .input .at (-1), url .pathToFileURL (path .join (process .cwd (), "/"))),
+         scene     = scenes .get (input .href) ?? await Browser .createX3DFromURL (new X3D .MFString (input)),
          generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
 
+      scenes .set (input .href, scene);
       generator .push (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
 
       scene .setMetaData ("generator", generator);
@@ -168,6 +167,7 @@ async function convert ()
       }
    }
 
+   scenes .forEach (scene => scene .dispose ());
    Browser .dispose ();
 }
 
