@@ -1,16 +1,17 @@
 "use strict";
 
 const
-   X3D      = require ("x_ite-node"),
-   pkg      = require ("../package.json"),
-   infer    = require ("./infer"),
-   metadata = require ("./metadata"),
-   yargs    = require ("yargs"),
-   url      = require ("url"),
-   path     = require ("path"),
-   fs       = require ("fs"),
-   zlib     = require ("zlib"),
-   DEBUG    = false;
+   X3D         = require ("x_ite-node"),
+   pkg         = require ("../package.json"),
+   infer       = require ("./infer"),
+   metadata    = require ("./metadata"),
+   yargs       = require ("yargs"),
+   { hideBin } = require ("yargs/helpers"),
+   url         = require ("url"),
+   path        = require ("path"),
+   fs          = require ("fs"),
+   zlib        = require ("zlib"),
+   DEBUG       = false;
 
 main ();
 
@@ -31,7 +32,7 @@ async function main ()
 
 async function convert ()
 {
-   const args = yargs (process .argv .slice (2))
+   const args = yargs (hideBin (process .argv))
    .scriptName ("x3d-tidy")
    .usage ("$0 [options] input-file output-file [input-file output-file ...]")
    .command ("X3D converter, beautifier and minimizer")
@@ -91,15 +92,6 @@ async function convert ()
    })
    .help ()
    .alias ("help", "h") .argv;
-
-   if (args .version)
-      return;
-
-   if (args .help)
-      return;
-
-   args .input  ??= [ ];
-   args .output ??= [ ];
 
    if (args .input .length === 0 && args .output .length === 0)
    {
