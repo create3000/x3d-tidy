@@ -1,0 +1,41 @@
+#X3D V4.0 utf8 X_ITE V10.5.15
+
+PROFILE Interactive
+
+META "generator" "x3d-tidy V2.0.7, https://www.npmjs.com/package/x3d-tidy"
+META "modified" "Tue, 10 Dec 2024 09:50:06 GMT"
+
+Background {
+  skyColor 0.2 0.2 0.2
+}
+
+Viewpoint {
+  position 4.75079 5.5764 6.80689
+  orientation -0.67979594907481 0.70155548858341 0.2137694179717 0.842769006819
+}
+
+TouchSensor {
+  metadata MetadataString { }
+  description "Box Geometry"
+}
+
+Shape {
+  metadata MetadataSet {
+    value MetadataBoolean { }
+  }
+  appearance Appearance {
+    material Material {
+      diffuseColor 0 0.5 1
+      diffuseTexture PixelTexture {
+        image 2 2 1
+          0xff 0x0
+          0x0 0xff
+        textureProperties TextureProperties {
+          boundaryModeS "CLAMP_TO_EDGE"
+          boundaryModeT "CLAMP_TO_EDGE"
+        }
+      }
+    }
+  }
+  geometry Box { }
+}
