@@ -48,6 +48,7 @@ async function convert ()
       alias: "i",
       description: "Set input file(s). If there are less input files than output files, the last input file is used for the remaining output files.",
       array: true,
+      implies: "output",
    })
    .option ("output",
    {
@@ -55,6 +56,7 @@ async function convert ()
       alias: "o",
       description: "Set output file(s). To output it to stdout use only the extension, e.g. '.x3dv'.",
       array: true,
+      implies: "input",
    })
    .option ("style",
    {
