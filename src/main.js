@@ -93,6 +93,9 @@ async function convert ()
    .help ()
    .alias ("help", "h") .argv;
 
+   args .input  ??= [ ];
+   args .output ??= [ ];
+
    if (args .input .length === 0 && args .output .length === 0)
    {
       if (args ._ .length % 2 === 0)
