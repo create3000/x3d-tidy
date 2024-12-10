@@ -10,7 +10,7 @@ X3D converter, beautifier and minimizer
 
 You can run *x3d-tidy* without installing it using **npx**:
 
-**npx x3d-tidy** \[options\]
+**npx x3d-tidy** \[options\] input-file output-file [input-file output-file ...]
 
 ## Options
 
@@ -80,7 +80,13 @@ Show help.
 Convert an XML encoded file into a VRML encoded file.
 
 ```sh
-$ npx x3d-tidy -i file.x3d -o file.x3dv
+$ npx x3d-tidy file.x3d file.x3dv
+```
+
+Convert an XML encoded file into a VRML encoded file and a JSON encoded file.
+
+```sh
+$ npx x3d-tidy -i file.x3d -o file.x3dv file.x3dj
 ```
 
 ## Online Converter

@@ -33,7 +33,7 @@ async function convert ()
 {
    const args = yargs (process .argv .slice (2))
    .scriptName ("x3d-tidy")
-   .usage ("$0 args")
+   .usage ("$0 [options] input-file output-file [input-file output-file ...]")
    .command ("x3d-tidy", "X3D converter, beautifier and minimizer")
    .version (pkg .version)
    .alias ("v", "version")
@@ -46,7 +46,7 @@ async function convert ()
    {
       type: "string",
       alias: "i",
-      description: "Set input file(s).",
+      description: "Set input file(s). If there are less input files than output files, the last input file is uses for the remaining output files.",
       array: true,
    })
    .option ("output",
