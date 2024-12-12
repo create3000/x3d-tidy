@@ -35,9 +35,20 @@ async function convert ()
    const args = yargs (hideBin (process .argv))
    .scriptName ("x3d-tidy")
    .usage ("$0 [options] input-file output-file [input-file output-file ...]")
+   .wrap (yargs .terminalWidth ())
    .command ("X3D converter, beautifier and minimizer")
    .version (pkg .version)
    .alias ("v", "version")
+   .example ([
+      [
+         "npx x3d-tidy file.x3d file.x3dv",
+         "Convert an XML encoded file into a VRML encoded file."
+      ],
+      [
+         "npx x3d-tidy -i file.x3d -o file.x3dv file.x3dj",
+         "Convert an XML encoded file into a VRML encoded file and a JSON encoded file."
+      ],
+   ])
    .fail ((msg, error, yargs) =>
    {
       console .error (msg);
@@ -67,32 +78,40 @@ async function convert ()
       alias: "s",
       description: "Set output style, default is 'TIDY'.",
       choices: ["CLEAN", "SMALL", "COMPACT", "TIDY"],
+      array: true,
+      default: ["TIDY"],
    })
    .option ("double",
    {
       type: "number",
       alias: "d",
       description: "Set double precision, default is 15.",
-      default: 15,
+      array: true,
+      default: [15],
    })
    .option ("float",
    {
       type: "number",
       alias: "f",
       description: "Set float precision, default is 7.",
-      default: 7,
+      array: true,
+      default: [7],
    })
    .option ("infer",
    {
       type: "boolean",
       alias: "r",
       description: "If set, infer profile and components from used nodes.",
+      array: true,
+      default: [false],
    })
    .option ("metadata",
    {
       type: "boolean",
       alias: "m",
       description: "If set, remove metadata nodes.",
+      array: true,
+      default: [false],
    })
    .help ()
    .alias ("help", "h") .argv;
@@ -136,18 +155,18 @@ async function convert ()
       scene .setMetaData ("generator", generator);
       scene .setMetaData ("modified", new Date () .toUTCString ());
 
-      if (args .infer)
+      if (args .infer [i] ?? args .infer .at (-1))
          infer (scene);
 
-      if (args .metadata)
+      if (args .metadata [i] ?? args .metadata .at (-1))
          metadata (scene);
 
       const options =
       {
          scene: scene,
-         style: args .style,
-         precision: args .float,
-         doublePrecision: args .double,
+         style: args .style [i] ?? args .style .at (-1),
+         precision: args .float [i] ?? args .float .at (-1),
+         doublePrecision: args .double [i] ?? args .double .at (-1),
       };
 
       const output = path .resolve (process .cwd (), args .output [i]);
