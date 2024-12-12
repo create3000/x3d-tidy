@@ -145,7 +145,7 @@ async function convert ()
    for (const i of args .output .keys ())
    {
       const
-         input     = new URL (args .input [i] ?? args .input .at (-1), url .pathToFileURL (path .join (process .cwd (), "/"))),
+         input     = new URL (arg (args .input, i), url .pathToFileURL (path .join (process .cwd (), "/"))),
          scene     = scenes .get (input .href) ?? await Browser .createX3DFromURL (new X3D .MFString (input)),
          generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
 
@@ -155,18 +155,18 @@ async function convert ()
       scene .setMetaData ("generator", generator);
       scene .setMetaData ("modified", new Date () .toUTCString ());
 
-      if (args .infer [i] ?? args .infer .at (-1))
+      if (arg (args .infer, i))
          infer (scene);
 
-      if (args .metadata [i] ?? args .metadata .at (-1))
+      if (arg (args .metadata, i))
          metadata (scene);
 
       const options =
       {
          scene: scene,
-         style: args .style [i] ?? args .style .at (-1),
-         precision: args .float [i] ?? args .float .at (-1),
-         doublePrecision: args .double [i] ?? args .double .at (-1),
+         style: arg (args .style, i),
+         precision: arg (args .float, i),
+         doublePrecision: arg (args .double, i),
       };
 
       const output = path .resolve (process .cwd (), args .output [i]);
@@ -179,6 +179,11 @@ async function convert ()
 
    scenes .forEach (scene => scene .dispose ());
    Browser .dispose ();
+}
+
+function arg (arg, i)
+{
+   return arg [i] ?? arg .at (-1);
 }
 
 function getContents ({ scene, type, style, precision, doublePrecision })
