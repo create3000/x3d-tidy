@@ -1,4 +1,4 @@
-#X3D V4.0 utf8 X_ITE V10.5.15
+#X3D V4.0 utf8 X_ITE V11.0.0
 
 PROFILE Interchange
 
@@ -9,8 +9,8 @@ UNIT angle degree 0.017453292519943295
 META "created" "Tue, 10 Dec 2024 12:50:51 GMT"
 META "creator" "Holger Seelig"
 META "generator" "Sunrize X3D Editor V1.7.35, https://create3000.github.io/sunrize/"
-META "generator" "x3d-tidy V2.0.7, https://www.npmjs.com/package/x3d-tidy"
-META "modified" "Tue, 10 Dec 2024 19:35:51 GMT"
+META "generator" "x3d-tidy V2.0.9, https://www.npmjs.com/package/x3d-tidy"
+META "modified" "Thu, 12 Dec 2024 10:28:55 GMT"
 
 Background {
   skyColor 0.2 0.2 0.2
@@ -27,6 +27,7 @@ TouchSensor {
 }
 
 DEF _1 Transform {
+  rotation 0 0 1 255.959987640381
   children Shape {
     metadata MetadataSet {
       value MetadataBoolean { }
