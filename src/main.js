@@ -149,19 +149,12 @@ async function convert ()
          doublePrecision: args .double,
       };
 
-      if (args .output [i])
-      {
-         const output = path .resolve (process .cwd (), args .output [i]);
+      const output = path .resolve (process .cwd (), args .output [i]);
 
-         if (path .extname (output))
-            fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }));
-         else
-            console .log (getContents ({ ... options, type: path .basename (output) }));
-      }
+      if (path .extname (output))
+         fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }));
       else
-      {
-         console .log (getContents ({ ... options, type: path .extname (input) }));
-      }
+         console .log (getContents ({ ... options, type: path .basename (output) }));
    }
 
    scenes .forEach (scene => scene .dispose ());
