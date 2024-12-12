@@ -49,6 +49,7 @@ async function convert ()
       alias: "i",
       description: "Set input file(s). If there are less input files than output files, the last input file is used for the remaining output files.",
       array: true,
+      default: [ ],
       implies: "output",
    })
    .option ("output",
@@ -57,6 +58,7 @@ async function convert ()
       alias: "o",
       description: "Set output file(s). To output it to stdout use only the extension, e.g. '.x3dv'.",
       array: true,
+      default: [ ],
       implies: "input",
    })
    .option ("style",
@@ -71,12 +73,14 @@ async function convert ()
       type: "number",
       alias: "d",
       description: "Set double precision, default is 15.",
+      default: 15,
    })
    .option ("float",
    {
       type: "number",
       alias: "f",
       description: "Set float precision, default is 7.",
+      default: 7,
    })
    .option ("infer",
    {
@@ -92,9 +96,6 @@ async function convert ()
    })
    .help ()
    .alias ("help", "h") .argv;
-
-   args .input  ??= [ ];
-   args .output ??= [ ];
 
    if (args .input .length === 0 && args .output .length === 0)
    {
