@@ -19,15 +19,14 @@ function getUsedComponents (scene)
 {
    const components = new Set ();
 
-   for (const node of scene .traverse (Traverse .PROTO_DECLARATIONS | Traverse .PROTO_DECLARATION_BODY | Traverse .ROOT_NODES | Traverse .PROTOTYPE_INSTANCES))
+   for (const object of scene .traverse (Traverse .PROTO_DECLARATIONS | Traverse .PROTO_DECLARATION_BODY | Traverse .ROOT_NODES | Traverse .PROTOTYPE_INSTANCES))
    {
-      if (!(node instanceof X3D .SFNode))
+      if (!(object instanceof X3D .SFNode))
          continue;
 
-      if (node .getValue () .getScene () !== scene)
-         continue;
+      const node = object .getValue ();
 
-      components .add (node .getValue () .getComponentInfo () .name);
+      components .add (node .getComponentInfo () .name);
    }
 
    return components;
