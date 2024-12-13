@@ -39,16 +39,6 @@ async function convert ()
    .command ("X3D converter, beautifier and minimizer")
    .version (pkg .version)
    .alias ("v", "version")
-   .example ([
-      [
-         "npx x3d-tidy file.x3d file.x3dv",
-         "Convert an XML encoded file into a VRML encoded file."
-      ],
-      [
-         "npx x3d-tidy -i file.x3d -o file.x3dv file.x3dj",
-         "Convert an XML encoded file into a VRML encoded file and a JSON encoded file."
-      ],
-   ])
    .fail ((msg, error, yargs) =>
    {
       console .error (msg);
@@ -113,6 +103,16 @@ async function convert ()
       array: true,
       default: [false],
    })
+   .example ([
+      [
+         "npx x3d-tidy file.x3d file.x3dv",
+         "Convert an XML encoded file into a VRML encoded file."
+      ],
+      [
+         "npx x3d-tidy -i file.x3d -o file.x3dv file.x3dj",
+         "Convert an XML encoded file into a VRML encoded file and a JSON encoded file."
+      ],
+   ])
    .help ()
    .alias ("help", "h") .argv;
 
