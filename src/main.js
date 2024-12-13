@@ -132,21 +132,21 @@ async function convert ()
    args .input = args .input .map (input => input .replace (/^([A-Za-z]:)/, "file://$1"));
 
    const
-      Browser = X3D .createBrowser () .browser,
+      browser = X3D .createBrowser () .browser,
       scenes  = new Map ();
 
-   Browser .endUpdate ();
-   Browser .setBrowserOption ("LoadUrlObjects",   false);
-   Browser .setBrowserOption ("PrimitiveQuality", "HIGH");
-   Browser .setBrowserOption ("TextureQuality",   "HIGH");
+   browser .endUpdate ();
+   browser .setBrowserOption ("LoadUrlObjects",   false);
+   browser .setBrowserOption ("PrimitiveQuality", "HIGH");
+   browser .setBrowserOption ("TextureQuality",   "HIGH");
 
-   await Browser .loadComponents (Browser .getProfile ("Full"));
+   await browser .loadComponents (browser .getProfile ("Full"));
 
    for (const i of args .output .keys ())
    {
       const
          input     = new URL (arg (args .input, i), url .pathToFileURL (path .join (process .cwd (), "/"))),
-         scene     = scenes .get (input .href) ?? await Browser .createX3DFromURL (new X3D .MFString (input)),
+         scene     = scenes .get (input .href) ?? await browser .createX3DFromURL (new X3D .MFString (input)),
          generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
 
       scenes .set (input .href, scene);
@@ -178,7 +178,7 @@ async function convert ()
    }
 
    scenes .forEach (scene => scene .dispose ());
-   Browser .dispose ();
+   browser .dispose ();
 }
 
 function arg (arg, i)
