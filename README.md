@@ -22,7 +22,7 @@ Set input file(s). This can be either a local file path or a URL. If there are l
 
 ### -o *file* ...
 
-Set output file(s).
+Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".
 
 ### -s *[**TIDY**, COMPACT, SMALL, CLEAN]*
 

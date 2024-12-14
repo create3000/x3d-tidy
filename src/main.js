@@ -57,7 +57,7 @@ async function convert ()
    {
       type: "string",
       alias: "o",
-      description: "Set output file(s). To output it to stdout use only the extension, e.g. '.x3dv'.",
+      description: `Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".`,
       array: true,
       default: [ ],
       implies: "input",
