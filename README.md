@@ -26,7 +26,7 @@ Set output file(s).
 
 ### -s *[**TIDY**, COMPACT, SMALL, CLEAN]*
 
-Set output style, default is "TIDY".
+Set output style, default is "TIDY". "TIDY" results in a good readable file, but with larger size, whereas "CLEAN" result in the smallest size possible. The other values are somewhere in between.
 
 ### -d *integer*
 

@@ -66,8 +66,8 @@ async function convert ()
    {
       type: "string",
       alias: "s",
-      description: "Set output style, default is 'TIDY'.",
-      choices: ["CLEAN", "SMALL", "COMPACT", "TIDY"],
+      description: `Set output style, default is "TIDY". "TIDY" results in a good readable file, but with larger size, whereas "CLEAN" result in the smallest size possible. The other values are somewhere in between.`,
+      choices: ["TIDY", "COMPACT", "SMALL", "CLEAN"],
       array: true,
       default: ["TIDY"],
    })
