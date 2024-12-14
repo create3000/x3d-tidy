@@ -105,7 +105,7 @@ async function convert ()
    })
    .example ([
       [
-         "npx x3d-tidy file.x3d file.x3dv",
+         "npx x3d-tidy -i file.x3d -o file.x3dv",
          "Convert an XML encoded file into a VRML encoded file."
       ],
       [
@@ -115,18 +115,6 @@ async function convert ()
    ])
    .help ()
    .alias ("help", "h") .argv;
-
-   if (args .input .length === 0 && args .output .length === 0)
-   {
-      if (args ._ .length % 2 === 0)
-      {
-         for (let i = 0; i < args ._ .length; i += 2)
-         {
-            args .input  .push (args ._ [i + 0]);
-            args .output .push (args ._ [i + 1]);
-         }
-      }
-   }
 
    // Fixes an issue with URL, if it matches a drive letter.
    args .input = args .input .map (input => input .replace (/^([A-Za-z]:)/, "file://$1"));
