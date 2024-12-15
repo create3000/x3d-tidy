@@ -28,9 +28,14 @@ function main ()
 	console .log (`NPM version ${online}`);
 	console .log (`New version ${version}`);
 
-	systemSync (`npm i x_ite@latest`);
-	systemSync (`npm i x_ite-node@latest`);
-	systemSync (`npm i x3d-traverse@latest`);
+	while (systemSync (`npm i x_ite@latest`))
+		systemSync (`countdown 60s`);
+
+	while (systemSync (`npm i x_ite-node@latest`))
+		systemSync (`countdown 60s`);
+
+	while (systemSync (`npm i x3d-traverse@latest`))
+		systemSync (`countdown 60s`);
 
 	// commit
 	systemSync (`git add -A`);
