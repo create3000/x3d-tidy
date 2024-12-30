@@ -55,7 +55,7 @@
    "dependencies": {
       "x_ite": "^11.0.2",
       "x_ite-node": "^1.0.21",
-      "x3d-traverse": "^1.0.7",
+      "x3d-traverse": "^1.0.8",
       "yargs": "^17.7.2"
    },
    "devDependencies": {
