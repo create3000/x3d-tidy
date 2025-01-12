@@ -106,11 +106,11 @@ async function convert ()
    .example ([
       [
          "npx x3d-tidy -i file.x3d -o file.x3dv",
-         "Convert an XML encoded file into a VRML encoded file."
+         "Convert an XML encoded file to a VRML encoded file."
       ],
       [
          "npx x3d-tidy -i file.x3d -o file.x3dv file.x3dj",
-         "Convert an XML encoded file into a VRML encoded file and a JSON encoded file."
+         "Convert an XML encoded file to a VRML encoded file and a JSON encoded file."
       ],
    ])
    .help ()
