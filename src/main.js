@@ -130,6 +130,9 @@ async function convert ()
 
    await browser .loadComponents (browser .getProfile ("Full"));
 
+   if (!args .input .length)
+      console .warn ("No input files specified.");
+
    for (const i of args .output .keys ())
    {
       const
