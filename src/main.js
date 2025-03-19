@@ -109,8 +109,8 @@ async function convert ()
          "Convert an XML encoded file to a VRML encoded file."
       ],
       [
-         "npx x3d-tidy -i file.x3d -o file.x3dv file.x3dj",
-         "Convert an XML encoded file to a VRML encoded file and a JSON encoded file."
+         "npx x3d-tidy -s CLEAN -i file.x3d -o file.x3dv file.x3dj",
+         "Convert an XML encoded file to a VRML encoded file and a JSON encoded file with smallest size possible by removing redundant whitespaces"
       ],
    ])
    .help ()
