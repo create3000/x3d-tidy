@@ -80,13 +80,12 @@ Show help.
 Convert an XML encoded file to a VRML encoded file.
 
 ```sh
-npx x3d-tidy -i file.x3d -o file.x3dv
+$ npx x3d-tidy -i file.x3d -o file.x3dv
 ```
 
 Convert an XML encoded file to a VRML encoded file and a JSON encoded file with smallest size possible by removing redundant whitespaces.
-
 ```sh
-npx x3d-tidy -s CLEAN -i file.x3d -o file.x3dv file.x3dj
+$ npx x3d-tidy -s CLEAN -i file.x3d -o file.x3dv file.x3dj
 ```
 
 ## Online Converter
