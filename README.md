@@ -26,7 +26,7 @@ Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".
 
 ### -s *[**TIDY**, COMPACT, SMALL, CLEAN]*
 
-Set output style, default is "TIDY". "TIDY" results in a good readable file, but with larger size, whereas "CLEAN" result in the smallest size possible. The other values are somewhere in between.
+Set output style, default is "TIDY". "TIDY" results in a good readable file, but with larger size, whereas "CLEAN" result in the smallest size possible by removing all redundant whitespaces. The other values are somewhere in between.
 
 ### -d *integer*
 
