@@ -14,7 +14,7 @@ You can run *x3d-tidy* without installing it using **npx**:
 
 ## Overview
 
-x3d-tidy is a command-line tool designed for processing X3D (Extensible 3D) files. It provides both conversion and data mining capabilities to enhance and streamline working with X3D content.
+*x3d-tidy* is a command-line tool designed for processing X3D (Extensible 3D) files. It provides both conversion and data mining capabilities to enhance and streamline working with X3D content.
 
 * Format Conversion: Transforms X3D files between different encodings, such as XML, Classic VRML, and JSON.
 * Syntax Cleanup: Ensures well-formed and standardized X3D output by fixing structural inconsistencies and formatting issues.
