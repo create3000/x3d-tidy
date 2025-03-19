@@ -16,6 +16,7 @@ You can run *x3d-tidy* without installing it using **npx**:
 
 *x3d-tidy* is a command-line tool designed for processing X3D (Extensible 3D) files. It provides both conversion and data mining capabilities to enhance and streamline working with X3D content.
 
+* Run *x3d-tidy* with `npx x3d-tidy ...` directly from npm without installing it.
 * Format Conversion: Transforms X3D files between different encodings, such as XML, Classic VRML, and JSON.
 * Syntax Cleanup: Ensures well-formed and standardized X3D output by fixing structural inconsistencies and formatting issues.
 * Data Extraction: Mines relevant data from X3D scenes, allowing analysis and reuse of geometries, metadata, and structure.
