@@ -20,11 +20,11 @@
         },
         {
           "@name": "generator",
-          "@content": "x3d-tidy V2.0.9, https://www.npmjs.com/package/x3d-tidy"
+          "@content": "x3d-tidy V2.0.29, https://www.npmjs.com/package/x3d-tidy"
         },
         {
           "@name": "modified",
-          "@content": "Thu, 12 Dec 2024 10:28:57 GMT"
+          "@content": "Sun, 30 Mar 2025 08:53:23 GMT"
         }
       ],
       "component": [
@@ -68,7 +68,7 @@
         { "Transform":
           {
             "@DEF": "_1",
-            "@rotation": [ 0, 0, 1, 60.1200199127197 ],
+            "@rotation": [ 0, 0, 1, 139.680004119873 ],
             "-children": [
               { "Shape":
                 {

@@ -7,8 +7,8 @@
     <meta name='created' content='Tue, 10 Dec 2024 12:50:51 GMT'/>
     <meta name='creator' content='Holger Seelig'/>
     <meta name='generator' content='Sunrize X3D Editor V1.7.35, https://create3000.github.io/sunrize/'/>
-    <meta name='generator' content='x3d-tidy V2.0.9, https://www.npmjs.com/package/x3d-tidy'/>
-    <meta name='modified' content='Thu, 12 Dec 2024 10:28:47 GMT'/>
+    <meta name='generator' content='x3d-tidy V2.0.29, https://www.npmjs.com/package/x3d-tidy'/>
+    <meta name='modified' content='Sun, 30 Mar 2025 08:53:14 GMT'/>
   </head>
   <Scene>
     <Background
@@ -19,7 +19,7 @@
     <TouchSensor
         description='Box Geometry'/>
     <Transform DEF='_1'
-        rotation='0 0 0.999999999999997 349.200010299683'>
+        rotation='0 0 1 254.52000617981'>
       <Shape>
         <Appearance>
           <Material
