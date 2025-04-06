@@ -1,6 +1,6 @@
 {
    "name": "x3d-tidy",
-   "version": "2.0.31",
+   "version": "2.0.32",
    "description": "X3D Converter, Beautifier and Minimizer",
    "main": "src/main.js",
    "bin": {
@@ -53,8 +53,8 @@
       }
    ],
    "dependencies": {
-      "x_ite": "^11.4.2",
-      "x_ite-node": "^1.0.40",
+      "x_ite": "^11.5.0",
+      "x_ite-node": "^1.0.41",
       "x3d-traverse": "^1.0.11",
       "yargs": "^17.7.2"
    },
