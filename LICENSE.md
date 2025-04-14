@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) 1999 Holger Seelig
+Copyright (c) 2023 Holger Seelig
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
