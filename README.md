@@ -37,6 +37,10 @@ Set double precision, default is 15.
 
 Set float precision, default is 7.
 
+### -h
+
+Show help.
+
 ### -i *file(s)* ...
 
 Set input file(s). This can be either a local file path or a URL. If there are less input files than output files, the last input file is used for the remaining output files.
@@ -60,10 +64,6 @@ Set output style, default is "TIDY". "TIDY" results in a good readable file, but
 ### -v
 
 Show version.
-
-### -h
-
-Show help.
 
 ## Supported Input File Types
 
