@@ -29,18 +29,6 @@ This tool is particularly useful for developers, 3D artists, and researchers wor
 
 **x3d-tidy** interprets the following options when it is invoked:
 
-### -i *file(s)* ...
-
-Set input file(s). This can be either a local file path or a URL. If there are less input files than output files, the last input file is used for the remaining output files.
-
-### -o *file(s)* ...
-
-Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".
-
-### -s *[**TIDY**, COMPACT, SMALL, CLEAN]*
-
-Set output style, default is "TIDY". "TIDY" results in a good readable file, but with larger size, whereas "CLEAN" result in the smallest size possible by removing all redundant whitespaces. The other values are somewhere in between.
-
 ### -d *integer*
 
 Set double precision, default is 15.
@@ -49,13 +37,25 @@ Set double precision, default is 15.
 
 Set float precision, default is 7.
 
-### -r
+### -i *file(s)* ...
 
-If set, infer profile and components from used nodes.
+Set input file(s). This can be either a local file path or a URL. If there are less input files than output files, the last input file is used for the remaining output files.
 
 ### -m
 
 If set, remove metadata nodes.
+
+### -o *file(s)* ...
+
+Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".
+
+### -r
+
+If set, infer profile and components from used nodes.
+
+### -s *[**TIDY**, COMPACT, SMALL, CLEAN]*
+
+Set output style, default is "TIDY". "TIDY" results in a good readable file, but with larger size, whereas "CLEAN" result in the smallest size possible by removing all redundant whitespaces. The other values are somewhere in between.
 
 ### -v
 

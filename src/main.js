@@ -44,33 +44,6 @@ async function convert ()
       console .error (msg);
       process .exit (1);
    })
-   .option ("input",
-   {
-      type: "string",
-      alias: "i",
-      description: "Set input file(s). If there are less input files than output files, the last input file is used for the remaining output files.",
-      array: true,
-      default: [ ],
-      implies: "output",
-   })
-   .option ("output",
-   {
-      type: "string",
-      alias: "o",
-      description: `Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".`,
-      array: true,
-      default: [ ],
-      implies: "input",
-   })
-   .option ("style",
-   {
-      type: "string",
-      alias: "s",
-      description: `Set output style, default is "TIDY". "TIDY" results in a good readable file, but with larger size, whereas "CLEAN" result in the smallest size possible by removing all redundant whitespaces. The other values are somewhere in between.`,
-      choices: ["TIDY", "COMPACT", "SMALL", "CLEAN"],
-      array: true,
-      default: ["TIDY"],
-   })
    .option ("double",
    {
       type: "number",
@@ -87,13 +60,14 @@ async function convert ()
       array: true,
       default: [7],
    })
-   .option ("infer",
+   .option ("input",
    {
-      type: "boolean",
-      alias: "r",
-      description: "If set, infer profile and components from used nodes.",
+      type: "string",
+      alias: "i",
+      description: "Set input file(s). If there are less input files than output files, the last input file is used for the remaining output files.",
       array: true,
-      default: [false],
+      default: [ ],
+      implies: "output",
    })
    .option ("metadata",
    {
@@ -102,6 +76,32 @@ async function convert ()
       description: "If set, remove metadata nodes.",
       array: true,
       default: [false],
+   })
+   .option ("output",
+   {
+      type: "string",
+      alias: "o",
+      description: `Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".`,
+      array: true,
+      default: [ ],
+      implies: "input",
+   })
+   .option ("infer",
+   {
+      type: "boolean",
+      alias: "r",
+      description: "If set, infer profile and components from used nodes.",
+      array: true,
+      default: [false],
+   })
+   .option ("style",
+   {
+      type: "string",
+      alias: "s",
+      description: `Set output style, default is "TIDY". "TIDY" results in a good readable file, but with larger size, whereas "CLEAN" result in the smallest size possible by removing all redundant whitespaces. The other values are somewhere in between.`,
+      choices: ["TIDY", "COMPACT", "SMALL", "CLEAN"],
+      array: true,
+      default: ["TIDY"],
    })
    .example ([
       [
