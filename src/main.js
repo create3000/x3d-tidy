@@ -123,11 +123,12 @@ async function convert ()
       browser = X3D .createBrowser () .browser,
       scenes  = new Map ();
 
-   browser .endUpdate ();
-   browser .setBrowserOption ("LoadUrlObjects",   false);
-   browser .setBrowserOption ("Mute",             true);
    browser .setBrowserOption ("PrimitiveQuality", "HIGH");
    browser .setBrowserOption ("TextureQuality",   "HIGH");
+   browser .setBrowserOption ("AutoUpdate",       false);
+   browser .setBrowserOption ("LoadUrlObjects",   false);
+   browser .setBrowserOption ("Mute",             true);
+   browser .endUpdate ();
 
    await browser .loadComponents (browser .getProfile ("Full"));
 
