@@ -125,7 +125,6 @@ async function convert ()
 
    browser .setBrowserOption ("PrimitiveQuality", "HIGH");
    browser .setBrowserOption ("TextureQuality",   "HIGH");
-   browser .setBrowserOption ("AutoUpdate",       false);
    browser .setBrowserOption ("LoadUrlObjects",   false);
    browser .setBrowserOption ("Mute",             true);
    browser .endUpdate ();
