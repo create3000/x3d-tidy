@@ -54,7 +54,7 @@
    ],
    "dependencies": {
       "x_ite": "^11.6.1",
-      "x_ite-node": "^1.0.57",
+      "x_ite-node": "^1.0.58",
       "x3d-traverse": "^1.0.13",
       "yargs": "^18.0.0"
    },
