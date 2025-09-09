@@ -128,7 +128,6 @@ async function convert ()
          "Convert an XML encoded file to a VRML encoded file and a JSON encoded file with smallest size possible by removing redundant whitespaces"
       ],
    ])
-   .requiresArg (["extension", "output"])
    .help ()
    .alias ("help", "h") .argv;
 
