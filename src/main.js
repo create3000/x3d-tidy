@@ -59,8 +59,8 @@ async function convert ()
       alias: "e",
       description: `Set output file extension(s), e.g. ".x3dv". The output file will have the same basename as the input file.`,
       array: true,
-      default: [ ],
       implies: "input",
+      conflicts: "output",
    })
    .option ("float",
    {
@@ -76,8 +76,7 @@ async function convert ()
       alias: "i",
       description: "Set input file(s). If there are less input files than output files, the last input file is used for the remaining output files.",
       array: true,
-      default: [ ],
-      implies: ["extension", "output"],
+      demandOption: true,
    })
    .option ("metadata",
    {
@@ -93,8 +92,8 @@ async function convert ()
       alias: "o",
       description: `Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".`,
       array: true,
-      default: [ ],
       implies: "input",
+      conflicts: "extension",
    })
    .option ("infer",
    {
@@ -123,18 +122,13 @@ async function convert ()
          "Convert an XML encoded file to a VRML encoded file and a JSON encoded file with smallest size possible by removing redundant whitespaces"
       ],
    ])
+   .requiresArg (["extension", "output"])
    .help ()
    .alias ("help", "h") .argv;
 
-   if (!args .input .length)
+   if (!args .output && !args .extension)
    {
-      console .error (colors .red ("No input files specified."));
-      process .exit (1);
-   }
-
-   if (!args .output .length && !args .extension .length)
-   {
-      console .error (colors .red ("No output files specified."));
+      console .error (colors .red ("Missing argument output or extension."));
       process .exit (1);
    }
 
@@ -156,9 +150,9 @@ async function convert ()
    if (!args .input .length)
       console .warn ("No input files specified.");
 
-   const length = Math .max (args .input .length, args .output .length, args .extension .length);
+   const argc = Math .max (args .input .length, args .output ?.length ?? args .extension ?.length);
 
-   for (let i = 0; i < length; ++ i)
+   for (let i = 0; i < argc; ++ i)
    {
       const
          input     = new URL (arg (args .input, i), url .pathToFileURL (path .join (process .cwd (), "/"))),
@@ -187,11 +181,11 @@ async function convert ()
 
       let output;
 
-      if (args .output .length)
+      if (args .output)
       {
          output = path .resolve (process .cwd (), arg (args .output, i));
       }
-      else if (args .extension .length)
+      else if (args .extension)
       {
          const
             filename  = url .fileURLToPath (input),
