@@ -58,7 +58,7 @@ async function convert ()
    {
       type: "string",
       alias: "e",
-      description: `Set output file extension(s), e.g. ".x3dv" or ".N.x3dj". The output file will have the same basename as the input file.`,
+      description: `Set output file extension(s), e.g. ".x3dv" or ".tidy.x3d". The output file will have the same basename as the input file.`,
       array: true,
       requiresArg: true,
       implies: "input",
