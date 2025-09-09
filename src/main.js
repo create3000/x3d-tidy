@@ -73,6 +73,21 @@ async function convert ()
       default: [7],
       requiresArg: true,
    })
+   .option ("log",
+   {
+      type: "boolean",
+      alias: "g",
+      description: `Log output filenames to stdout.`,
+      implies: "input",
+   })
+   .option ("infer",
+   {
+      type: "boolean",
+      alias: "r",
+      description: "If set, infer profile and components from used nodes.",
+      array: true,
+      default: [false],
+   })
    .option ("input",
    {
       type: "string",
@@ -99,14 +114,6 @@ async function convert ()
       requiresArg: true,
       implies: "input",
       conflicts: "extension",
-   })
-   .option ("infer",
-   {
-      type: "boolean",
-      alias: "r",
-      description: "If set, infer profile and components from used nodes.",
-      array: true,
-      default: [false],
    })
    .option ("style",
    {
@@ -198,6 +205,9 @@ async function convert ()
 
          output = `${filename .slice (0, -path. extname (filename) .length)}${extension}`;
       }
+
+      if (args .log)
+         console .log (output);
 
       if (path .extname (output))
          fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }));

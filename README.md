@@ -41,6 +41,10 @@ Set output file extension(s), e.g. ".x3dv" or ".tidy.x3d". The output file will 
 
 Set float precision, default is 7.
 
+### -g
+
+Log output filenames to stdout..
+
 ### -h
 
 Show help.
