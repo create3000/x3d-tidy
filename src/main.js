@@ -26,7 +26,7 @@ async function main ()
    }
    catch (error)
    {
-      console .error (error .message || error);
+      console .error (colors .red (error .message || error));
       process .exit (1);
    }
 }
