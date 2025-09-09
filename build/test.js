@@ -13,3 +13,6 @@ systemSync (`npx . -i https://raw.githubusercontent.com/KhronosGroup/glTF-Sample
 
 systemSync (`npx . -i tests/assets/test.x3d -o tests/out/test.o.x3d -o tests/out/test.o.x3dv -o tests/out/test.o.x3dj`);
 systemSync (`npx . -i tests/assets/test.x3d -o tests/out/test.no.x3d -i tests/assets/test.x3d -o tests/out/test.no.x3dv -i tests/assets/test.x3d -o tests/out/test.no.x3dj`);
+
+systemSync (`npx . -i tests/assets/Box/Box.x3d tests/assets/Sphere/Sphere.x3d -e .2i.x3dv`);
+systemSync (`npx . -i tests/assets/Box/Box.x3d -e .2o.x3dv .2o.x3dj`);

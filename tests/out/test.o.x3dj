@@ -1,4 +1,5 @@
-{ "X3D": {
+{ "X3D":
+  {
     "encoding": "UTF-8",
     "@profile": "Interchange",
     "@version": "4.0",
@@ -20,11 +21,11 @@
         },
         {
           "@name": "generator",
-          "@content": "x3d-tidy V2.0.29, https://www.npmjs.com/package/x3d-tidy"
+          "@content": "x3d-tidy V2.1.26, https://www.npmjs.com/package/x3d-tidy"
         },
         {
           "@name": "modified",
-          "@content": "Sun, 30 Mar 2025 08:53:22 GMT"
+          "@content": "Tue, 09 Sep 2025 08:51:22 GMT"
         }
       ],
       "component": [
@@ -68,7 +69,7 @@
         { "Transform":
           {
             "@DEF": "_1",
-            "@rotation": [ 0, 0, 1, 56.879997253418 ],
+            "@rotation": [ 0, 0, 1, 100.799989700317 ],
             "-children": [
               { "Shape":
                 {
