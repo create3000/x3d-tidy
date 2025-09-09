@@ -33,7 +33,7 @@ This tool is particularly useful for developers, 3D artists, and researchers wor
 
 Set double precision, default is 15.
 
-### -e *extension*
+### -e *extension(s)*
 
 Set output file extension(s), e.g. ".x3dv". The output file will have the same basename as the input file.
 
