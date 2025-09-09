@@ -11,6 +11,7 @@ const
    path        = require ("path"),
    fs          = require ("fs"),
    zlib        = require ("zlib"),
+   colors      = require ("colors"),
    DEBUG       = false;
 
 main ();
@@ -41,7 +42,7 @@ async function convert ()
    .alias ("v", "version")
    .fail ((msg, error, yargs) =>
    {
-      console .error (msg);
+      console .error (colors .red (msg));
       process .exit (1);
    })
    .option ("double",
@@ -127,13 +128,13 @@ async function convert ()
 
    if (!args .input .length)
    {
-      console .error ("No input files specified.");
+      console .error (colors .red ("No input files specified."));
       process .exit (1);
    }
 
    if (!args .output .length && !args .extension .length)
    {
-      console .error ("No output files specified.");
+      console .error (colors .red ("No output files specified."));
       process .exit (1);
    }
 
