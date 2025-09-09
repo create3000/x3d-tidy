@@ -127,13 +127,13 @@ async function convert ()
 
    if (!args .input .length)
    {
-      console .error ("There must be at least one input file.");
+      console .error ("No input files specified.");
       process .exit (1);
    }
 
    if (!args .output .length && !args .extension .length)
    {
-      console .error ("There must be at least one output file.");
+      console .error ("No output files specified.");
       process .exit (1);
    }
 
