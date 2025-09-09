@@ -35,7 +35,7 @@ Set double precision, default is 15.
 
 ### -e *extension(s)* ...
 
-Set output file extension(s), e.g. ".x3dv". The output file will have the same basename as the input file.
+Set output file extension(s), e.g. ".x3dv". The output file will have the same basename as the input file. Use either '-e' or '-o'.
 
 ### -f *integer*
 
@@ -55,7 +55,7 @@ If set, remove metadata nodes.
 
 ### -o *file(s)* ...
 
-Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".
+Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv". Use either '-e' or '-o'.
 
 ### -r
 
