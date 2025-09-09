@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 4.0//EN" "http://www.web3d.org/specifications/x3d-4.0.dtd">
+<X3D profile='Interchange' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-4.0.xsd'>
+  <head>
+    <component name='Scripting' level='1'/>
+    <meta name='created' content='Fri, 24 May 2024 07:05:14 GMT'/>
+    <meta name='creator' content='Holger Seelig'/>
+    <meta name='generator' content='Sunrize X3D Editor V1.6.14, https://create3000.github.io/sunrize/'/>
+    <meta name='generator' content='x3d-tidy V1.0.142, https://www.npmjs.com/package/x3d-tidy'/>
+    <meta name='modified' content='Fri, 24 May 2024 07:07:01 GMT'/>
+  </head>
+  <Scene>
+    <NavigationInfo
+        type='"EXAMINE"'
+        transitionType='"ANIMATE"'/>
+    <Background
+        skyAngle='1.5708'
+        skyColor='0.1 0.1 0.1, 0.3 0.3 0.3'
+        groundAngle='1.5708'
+        groundColor='0.1 0.1 0.1, 0.3 0.3 0.3'/>
+    <Viewpoint
+        description='Initial View'
+        position='2.50599 2.75837 5.90587'
+        orientation='-0.704047440947535 0.695566770035024 0.143192420603437 0.568942006035107'
+        centerOfRotation='8.07257e-7 1.16639e-6 -8.87304e-7'/>
+    <Transform DEF='Sphere'>
+      <Shape>
+        <Appearance>
+          <Material
+              ambientIntensity='0.712006'
+              diffuseColor='1 1 1'
+              specularColor='1 1 0.7'
+              shininess='0.81'/>
+          <ImageTexture
+              url='"pattern.png"'/>
+          <TextureTransform
+              scale='64 32'/>
+        </Appearance>
+        <Sphere
+            radius='2'/>
+      </Shape>
+    </Transform>
+    <Script DEF='EnterWorldScript'>
+<![CDATA[ecmascript:
+function initialize ()
+{
+	Browser .setBrowserOption ("PrimitiveQuality", "HIGH");
+}
+]]>
+    </Script>
+  </Scene>
+</X3D>

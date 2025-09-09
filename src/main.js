@@ -52,6 +52,15 @@ async function convert ()
       array: true,
       default: [15],
    })
+   .option ("extension",
+   {
+      type: "string",
+      alias: "e",
+      description: `Set output file extension(s), e.g. ".x3dv". The output file will have the same basename as the input file.`,
+      array: true,
+      default: [ ],
+      implies: "input",
+   })
    .option ("float",
    {
       type: "number",
@@ -67,7 +76,7 @@ async function convert ()
       description: "Set input file(s). If there are less input files than output files, the last input file is used for the remaining output files.",
       array: true,
       default: [ ],
-      implies: "output",
+      implies: ["extension", "output"],
    })
    .option ("metadata",
    {
@@ -116,6 +125,18 @@ async function convert ()
    .help ()
    .alias ("help", "h") .argv;
 
+   if (!args .input .length)
+   {
+      console .error ("There must be at least one input file.");
+      process .exit (1);
+   }
+
+   if (!args .output .length && !args .extension .length)
+   {
+      console .error ("There must be at least one output file.");
+      process .exit (1);
+   }
+
    // Fixes an issue with URL, if it matches a drive letter.
    args .input = args .input .map (input => input .replace (/^([A-Za-z]:)/, "file://$1"));
 
@@ -134,7 +155,9 @@ async function convert ()
    if (!args .input .length)
       console .warn ("No input files specified.");
 
-   for (const i of args .output .keys ())
+   const length = Math .max (args .input .length, args .output .length, args .extension .length);
+
+   for (let i = 0; i < length; ++ i)
    {
       const
          input     = new URL (arg (args .input, i), url .pathToFileURL (path .join (process .cwd (), "/"))),
@@ -161,7 +184,20 @@ async function convert ()
          doublePrecision: arg (args .double, i),
       };
 
-      const output = path .resolve (process .cwd (), args .output [i]);
+      let output;
+
+      if (args .output .length)
+      {
+         output = path .resolve (process .cwd (), arg (args .output, i));
+      }
+      else if (args .extension .length)
+      {
+         const
+            filename  = url .fileURLToPath (input),
+            extension = arg (args .extension, i);
+
+         output = `${filename .slice (0, -path. extname (filename) .length)}${extension}`;
+      }
 
       if (path .extname (output))
          fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }));
