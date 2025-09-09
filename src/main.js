@@ -52,6 +52,7 @@ async function convert ()
       description: "Set double precision, default is 15.",
       array: true,
       default: [15],
+      requiresArg: true,
    })
    .option ("extension",
    {
@@ -59,6 +60,7 @@ async function convert ()
       alias: "e",
       description: `Set output file extension(s), e.g. ".x3dv". The output file will have the same basename as the input file.`,
       array: true,
+      requiresArg: true,
       implies: "input",
       conflicts: "output",
    })
@@ -69,6 +71,7 @@ async function convert ()
       description: "Set float precision, default is 7.",
       array: true,
       default: [7],
+      requiresArg: true,
    })
    .option ("input",
    {
@@ -76,6 +79,7 @@ async function convert ()
       alias: "i",
       description: "Set input file(s). If there are less input files than output files, the last input file is used for the remaining output files.",
       array: true,
+      requiresArg: true,
       demandOption: true,
    })
    .option ("metadata",
@@ -92,6 +96,7 @@ async function convert ()
       alias: "o",
       description: `Set output file(s). To output it to stdout use only the extension, e.g. ".x3dv".`,
       array: true,
+      requiresArg: true,
       implies: "input",
       conflicts: "extension",
    })
@@ -110,6 +115,7 @@ async function convert ()
       description: `Set output style, default is "TIDY". "TIDY" results in a good readable file, but with larger size, whereas "CLEAN" result in the smallest size possible by removing all redundant whitespaces. The other values are somewhere in between.`,
       choices: ["TIDY", "COMPACT", "SMALL", "CLEAN"],
       array: true,
+      requiresArg: true,
       default: ["TIDY"],
    })
    .example ([
