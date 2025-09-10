@@ -135,14 +135,15 @@ async function convert ()
          "Convert an XML encoded file to a VRML encoded file and a JSON encoded file with smallest size possible by removing redundant whitespaces"
       ],
    ])
+   .check (args =>
+   {
+      if (!args .output && !args .extension)
+         throw new Error ("Missing argument output or extension.");
+
+      return true;
+   })
    .help ()
    .alias ("help", "h") .argv;
-
-   if (!args .output && !args .extension)
-   {
-      console .error (colors .red ("Missing argument output or extension."));
-      process .exit (1);
-   }
 
    // Fixes an issue with URL, if it matches a drive letter.
    args .input = args .input .map (input => input .replace (/^([A-Za-z]:)/, "file://$1"));
