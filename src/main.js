@@ -76,7 +76,7 @@ async function convert ()
    .option ("log",
    {
       type: "boolean",
-      alias: "g",
+      alias: "l",
       description: `Log output filenames to stdout.`,
       implies: "input",
    })
