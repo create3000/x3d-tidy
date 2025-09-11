@@ -125,6 +125,13 @@ async function convert ()
       requiresArg: true,
       default: ["TIDY"],
    })
+   .check (args =>
+   {
+      if (!args .output && !args .extension)
+         throw new Error ("Missing argument output or extension.");
+
+      return true;
+   })
    .example ([
       [
          "npx x3d-tidy -i file.x3d -o file.x3dv",
@@ -135,13 +142,6 @@ async function convert ()
          "Convert an XML encoded file to a VRML encoded file and a JSON encoded file with smallest size possible by removing redundant whitespaces"
       ],
    ])
-   .check (args =>
-   {
-      if (!args .output && !args .extension)
-         throw new Error ("Missing argument output or extension.");
-
-      return true;
-   })
    .help ()
    .alias ("help", "h") .argv;
 
@@ -160,37 +160,15 @@ async function convert ()
 
    await browser .loadComponents (browser .getProfile ("Full"));
 
-   if (!args .input .length)
-      console .warn ("No input files specified.");
-
    const argc = Math .max (args .input .length, args .output ?.length ?? args .extension ?.length);
 
    for (let i = 0; i < argc; ++ i)
    {
-      const
-         input     = new URL (arg (args .input, i), url .pathToFileURL (path .join (process .cwd (), "/"))),
-         scene     = scenes .get (input .href) ?? await browser .createX3DFromURL (new X3D .MFString (input)),
-         generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
+      // Create input filename.
 
-      scenes .set (input .href, scene);
-      generator .push (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
+      const input = new URL (arg (args .input, i), url .pathToFileURL (path .join (process .cwd (), "/")));
 
-      scene .setMetaData ("generator", generator);
-      scene .setMetaData ("modified", new Date () .toUTCString ());
-
-      if (arg (args .infer, i))
-         infer (scene);
-
-      if (arg (args .metadata, i))
-         metadata (scene);
-
-      const options =
-      {
-         scene: scene,
-         style: arg (args .style, i),
-         precision: arg (args .float, i),
-         doublePrecision: arg (args .double, i),
-      };
+      // Create output filename.
 
       let output;
 
@@ -209,6 +187,34 @@ async function convert ()
 
       if (args .log)
          console .log (output);
+
+      // Load scene.
+
+      const
+         scene     = scenes .get (input .href) ?? await browser .createX3DFromURL (new X3D .MFString (input)),
+         generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
+
+      scenes .set (input .href, scene);
+      generator .push (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
+
+      scene .setMetaData ("generator", generator);
+      scene .setMetaData ("modified", new Date () .toUTCString ());
+
+      // Output scene.
+
+      if (arg (args .infer, i))
+         infer (scene);
+
+      if (arg (args .metadata, i))
+         metadata (scene);
+
+      const options =
+      {
+         scene: scene,
+         style: arg (args .style, i),
+         precision: arg (args .float, i),
+         doublePrecision: arg (args .double, i),
+      };
 
       if (path .extname (output))
          fs .writeFileSync (output, getContents ({ ... options, type: path .extname (output) }));
