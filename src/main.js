@@ -148,9 +148,7 @@ async function convert ()
    // Fixes an issue with URL, if it matches a drive letter.
    args .input = args .input .map (input => input .replace (/^([A-Za-z]:)/, "file://$1"));
 
-   const
-      browser = X3D .createBrowser () .browser,
-      scenes  = new Map ();
+   const browser = X3D .createBrowser () .browser;
 
    browser .setBrowserOption ("PrimitiveQuality", "HIGH");
    browser .setBrowserOption ("TextureQuality",   "HIGH");
@@ -191,10 +189,9 @@ async function convert ()
       // Load scene.
 
       const
-         scene     = scenes .get (input .href) ?? await browser .createX3DFromURL (new X3D .MFString (input)),
+         scene     = await browser .createX3DFromURL (new X3D .MFString (input)),
          generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
 
-      scenes .set (input .href, scene);
       generator .push (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
 
       scene .setMetaData ("generator", generator);
@@ -222,7 +219,6 @@ async function convert ()
          console .log (getContents ({ ... options, type: path .basename (output) }));
    }
 
-   scenes .forEach (scene => scene .dispose ());
    browser .dispose ();
 }
 
