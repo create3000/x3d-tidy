@@ -14,14 +14,7 @@ You can run *x3d-tidy* without installing it using **npx**:
 
 ## Overview
 
-*x3d-tidy* is a command-line tool, based on [X_ITE](https://create3000.github.io/x_ite/), designed for processing X3D (Extensible 3D) files. It provides both conversion and data mining capabilities to enhance and streamline work with X3D content.
-
-* Run *x3d-tidy* with `npx x3d-tidy ...` directly from npm without installing it.
-* Format Conversion: Transforms X3D files between different encodings, such as XML, Classic VRML, and JSON.
-* Syntax Cleanup: Ensures well-formed and standardized X3D output by fixing structural inconsistencies and formatting issues.
-* Data Extraction: Mines relevant data from X3D scenes, allowing analysis and reuse of geometries, metadata, and structure.
-* Validation & Optimization: Helps identify errors, redundant elements, and inefficiencies in X3D models.
-* Command-line Usability: Easily integrates into automation workflows and scripts for batch processing.
+*x3d-tidy* is a command-line tool, based on [X_ITE](https://create3000.github.io/x_ite/), for processing X3D files that helps developers and designers maintain clean and efficient 3D content. It can convert between different X3D encodings, making files easier to share or integrate into workflows. In addition, it can beautify X3D code for readability or minimize it for optimized performance and reduced file size.
 
 This tool is particularly useful for developers, 3D artists, and researchers working with X3D-based applications, ensuring clean, efficient, and interoperable files.
 
