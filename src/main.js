@@ -195,7 +195,7 @@ async function convert ()
          generator = scene .getMetaData ("generator") ?.filter (value => !value .startsWith (pkg .name)) ?? [ ];
 
       scenes .set (input .href, scene);
-      generator .push (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
+      generator .unshift (`${pkg .name} V${pkg .version}, ${pkg .homepage}`);
 
       scene .setMetaData ("generator", generator);
       scene .setMetaData ("modified", new Date () .toUTCString ());
