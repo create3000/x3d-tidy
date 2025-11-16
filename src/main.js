@@ -262,6 +262,7 @@ function getHTML (scene)
     <script defer src="https://cdn.jsdelivr.net/npm/x_ite@latest/dist/x_ite.min.js"></script>
     <style>
 body {
+  color-scheme: light dark;
   display: flex;
   flex-direction: column;
   margin: 0px;
