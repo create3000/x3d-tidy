@@ -1,65 +1,69 @@
 {
-   "name": "x3d-tidy",
-   "version": "2.2.14",
-   "description": "X3D Converter, Beautifier and Minimizer",
-   "main": "src/main.js",
-   "bin": {
-      "x3d-tidy": "bin/x3d-tidy.js"
-   },
-   "files": [
-      "bin/*",
-      "src/*"
-   ],
-   "scripts": {
-      "start": "node bin/x3d-tidy.js",
-      "test": "node build/test.js",
-      "release": "node build/release.js"
-   },
-   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/create3000/x3d-tidy.git"
-   },
-   "keywords": [
-      "beautifier",
-      "Compressor",
-      "converter",
-      "GLB",
-      "glTF2",
-      "JSON",
-      "Minimizer",
-      "npx",
-      "PLY",
-      "STL",
-      "SVG",
-      "tidy",
-      "VRML",
-      "Wavefront-OBJ",
-      "wrl",
-      "x_ite",
-      "X3D",
-      "XML"
-   ],
-   "author": "Holger Seelig",
-   "license": "MIT",
-   "bugs": {
-      "url": "https://github.com/create3000/x3d-tidy/issues"
-   },
-   "homepage": "https://www.npmjs.com/package/x3d-tidy",
-   "contributors": [
-      {
-         "name": "Holger Seelig",
-         "email": "holger.seelig@gmail.com",
-         "url": "https://github.com/create3000"
-      }
-   ],
-   "dependencies": {
-      "colors": "^1.4.0",
-      "x_ite": "^12.1.8",
-      "x_ite-node": "^1.1.13",
-      "x3d-traverse": "^1.0.22",
-      "yargs": "^18.0.0"
-   },
-   "devDependencies": {
-      "shell-tools": "^1.1.9"
-   }
+  "name": "x3d-tidy",
+  "version": "2.2.14",
+  "description": "X3D Converter, Beautifier and Minimizer",
+  "main": "src/main.js",
+  "bin": {
+    "x3d-tidy": "bin/x3d-tidy.js"
+  },
+  "files": [
+    "bin/*",
+    "src/*"
+  ],
+  "scripts": {
+    "start": "node bin/x3d-tidy.js",
+    "test": "node build/test.js",
+    "release": "node build/release.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/create3000/x3d-tidy.git"
+  },
+  "keywords": [
+    "beautifier",
+    "Compressor",
+    "converter",
+    "GLB",
+    "glTF2",
+    "JSON",
+    "Minimizer",
+    "npx",
+    "PLY",
+    "STL",
+    "SVG",
+    "tidy",
+    "VRML",
+    "Wavefront-OBJ",
+    "wrl",
+    "x_ite",
+    "X3D",
+    "XML"
+  ],
+  "author": "Holger Seelig",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/create3000/x3d-tidy/issues"
+  },
+  "homepage": "https://www.npmjs.com/package/x3d-tidy",
+  "contributors": [
+    {
+      "name": "Holger Seelig",
+      "email": "holger.seelig@gmail.com",
+      "url": "https://github.com/create3000"
+    }
+  ],
+  "funding": {
+    "type": "patreon",
+    "url": "https://patreon.com/X_ITE"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "x_ite": "^12.1.8",
+    "x_ite-node": "^1.1.13",
+    "x3d-traverse": "^1.0.22",
+    "yargs": "^18.0.0"
+  },
+  "devDependencies": {
+    "shell-tools": "^1.1.9"
+  }
 }
