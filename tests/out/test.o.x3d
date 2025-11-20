@@ -6,9 +6,9 @@
     <unit category='angle' name='degree' conversionFactor='0.017453292519943295'/>
     <meta name='created' content='Tue, 10 Dec 2024 12:50:51 GMT'/>
     <meta name='creator' content='Holger Seelig'/>
+    <meta name='generator' content='x3d-tidy V2.2.14, https://www.npmjs.com/package/x3d-tidy'/>
     <meta name='generator' content='Sunrize X3D Editor V1.7.35, https://create3000.github.io/sunrize/'/>
-    <meta name='generator' content='x3d-tidy V2.1.26, https://www.npmjs.com/package/x3d-tidy'/>
-    <meta name='modified' content='Tue, 09 Sep 2025 08:51:22 GMT'/>
+    <meta name='modified' content='Thu, 20 Nov 2025 10:27:10 GMT'/>
   </head>
   <Scene>
     <Background
@@ -21,7 +21,7 @@
       <MetadataString containerField='metadata'/>
     </TouchSensor>
     <Transform DEF='_1'
-        rotation='0 0 1 100.799989700317'>
+        rotation='0 0 1.00000000000001 349.559984207153'>
       <Shape>
         <MetadataSet containerField='metadata'>
           <MetadataBoolean/>

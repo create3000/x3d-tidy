@@ -2,8 +2,8 @@
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 4.0//EN" "https://www.web3d.org/specifications/x3d-4.0.dtd">
 <X3D profile='Interchange' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>
   <head>
-    <meta name='generator' content='x3d-tidy V2.1.26, https://www.npmjs.com/package/x3d-tidy'/>
-    <meta name='modified' content='Tue, 09 Sep 2025 08:51:21 GMT'/>
+    <meta name='generator' content='x3d-tidy V2.2.14, https://www.npmjs.com/package/x3d-tidy'/>
+    <meta name='modified' content='Thu, 20 Nov 2025 10:27:09 GMT'/>
   </head>
   <Scene>
     <WorldInfo

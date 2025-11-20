@@ -17,15 +17,15 @@
         },
         {
           "@name": "generator",
-          "@content": "Sunrize X3D Editor V1.7.35, https://create3000.github.io/sunrize/"
+          "@content": "x3d-tidy V2.2.14, https://www.npmjs.com/package/x3d-tidy"
         },
         {
           "@name": "generator",
-          "@content": "x3d-tidy V2.1.26, https://www.npmjs.com/package/x3d-tidy"
+          "@content": "Sunrize X3D Editor V1.7.35, https://create3000.github.io/sunrize/"
         },
         {
           "@name": "modified",
-          "@content": "Tue, 09 Sep 2025 08:51:22 GMT"
+          "@content": "Thu, 20 Nov 2025 10:27:10 GMT"
         }
       ],
       "component": [
@@ -69,7 +69,7 @@
         { "Transform":
           {
             "@DEF": "_1",
-            "@rotation": [ 0, 0, 1, 100.799989700317 ],
+            "@rotation": [ 0, 0, 1.00000000000001, 349.559984207153 ],
             "-children": [
               { "Shape":
                 {
