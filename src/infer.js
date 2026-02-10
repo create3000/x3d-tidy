@@ -34,7 +34,7 @@ function getUsedComponents (scene)
 
 function getProfileAndComponentsFromUsedComponents (browser, usedComponents)
 {
-   const profiles = ["Interactive", "Interchange", "Immersive"] .map (name =>
+   const profiles = ["Interactive", "Interchange", "Immersive", "Full"] .map (name =>
    {
       return { profile: browser .getProfile (name), components: new Set (usedComponents) };
    });
