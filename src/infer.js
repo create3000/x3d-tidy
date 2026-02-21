@@ -60,7 +60,10 @@ function getProfileAndComponentsFromUsedComponents (browser, usedComponents)
 
    const min = profiles .reduce ((min, object) =>
    {
-      const count = object .profile .components .length + object .components .size;
+      const count = new Set ([
+         ... [... object .profile .components] .map (component => component .name),
+         ... object .components .keys ()
+      ]) .size;
 
       return min .count < count ? min : {
          count: count,
