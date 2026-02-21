@@ -66,8 +66,8 @@ function getProfileAndComponentsFromUsedComponents (browser, usedComponents)
       ]) .size;
 
       return min .count < count ? min : {
-         count: count,
-         object: object,
+         count,
+         object,
       };
    },
    { count: Number .POSITIVE_INFINITY });
