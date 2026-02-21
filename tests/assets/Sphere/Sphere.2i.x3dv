@@ -1,4 +1,4 @@
-#X3D V4.0 utf8 X_ITE V12.1.8
+#X3D V4.1 utf8 X_ITE V14.0.3
 
 PROFILE Interchange
 
@@ -6,9 +6,9 @@ COMPONENT Scripting : 1
 
 META "created" "Fri, 24 May 2024 07:05:14 GMT"
 META "creator" "Holger Seelig"
-META "generator" "x3d-tidy V2.2.14, https://www.npmjs.com/package/x3d-tidy"
+META "generator" "x3d-tidy V3.0.3, https://www.npmjs.com/package/x3d-tidy"
 META "generator" "Sunrize X3D Editor V1.6.14, https://create3000.github.io/sunrize/"
-META "modified" "Thu, 20 Nov 2025 10:27:13 GMT"
+META "modified" "Sat, 21 Feb 2026 22:02:09 GMT"
 
 NavigationInfo {
   type "EXAMINE"

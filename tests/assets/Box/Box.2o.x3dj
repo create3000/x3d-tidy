@@ -2,9 +2,9 @@
   {
     "encoding": "UTF-8",
     "@profile": "Interchange",
-    "@version": "4.0",
-    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
-    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "@version": "4.1",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.1.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.1-JSONSchema.json",
     "head": {
       "meta": [
         {
@@ -17,7 +17,7 @@
         },
         {
           "@name": "generator",
-          "@content": "x3d-tidy V2.2.14, https://www.npmjs.com/package/x3d-tidy"
+          "@content": "x3d-tidy V3.0.3, https://www.npmjs.com/package/x3d-tidy"
         },
         {
           "@name": "generator",
@@ -25,7 +25,7 @@
         },
         {
           "@name": "modified",
-          "@content": "Thu, 20 Nov 2025 10:27:15 GMT"
+          "@content": "Sat, 21 Feb 2026 22:02:10 GMT"
         }
       ]
     },
