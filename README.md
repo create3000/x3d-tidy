@@ -108,4 +108,4 @@ $ npx x3d-tidy -s CLEAN -i file.x3d -o file.x3dv file.x3dj
 
 ## See Also
 
-* [x3d-image](https://www.npmjs.com/package/x3d-image) — render image files from X3D
+* [x3d-image](https://www.npmjs.com/package/x3d-image) — Render Image Files from X3D
