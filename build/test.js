@@ -16,3 +16,4 @@ systemSync (`npx . -i tests/assets/test.x3d -o tests/out/test.no.x3d -i tests/as
 
 systemSync (`npx . -i tests/assets/Box/Box.x3d tests/assets/Sphere/Sphere.x3d -e .2i.x3dv`);
 systemSync (`npx . -i tests/assets/Box/Box.x3d -e .2o.x3dv .2o.x3dj`);
+systemSync (`npx . -i tests/assets/OFF/cube.off -o tests/out/off.x3dv`);

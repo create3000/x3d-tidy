@@ -79,6 +79,7 @@ Show version.
 | Wavefront OBJ    | .obj           | model/obj         |
 | STL              | .stl           | model/stl         |
 | PLY              | .ply           | model/ply         |
+| OFF              | .off           | model/off         |
 | SVG Document     | .svg, .svgz    | image/svg+xml     |
 
 ## Supported Output File Types
