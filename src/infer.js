@@ -2,7 +2,7 @@
 
 const
    X3D      = require ("x_ite-node"),
-   Traverse = require ("x3d-traverse") (X3D);
+   Traverse = require ("x3d-traverse");
 
 module .exports = function inferProfileAndComponents (scene)
 {

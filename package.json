@@ -62,7 +62,7 @@
     "x_ite": "^15.0.3",
     "x_ite-node": "^2.0.18",
     "x_ite-off-parser": "^1.0.5",
-    "x3d-traverse": "^1.0.22",
+    "x3d-traverse": "^2.0.1",
     "yargs": "^18.0.0"
   },
   "devDependencies": {

@@ -3,8 +3,8 @@
 <X3D profile='Interchange' version='4.1' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.1.xsd'>
   <head>
     <component name='Geometry2D' level='2'/>
-    <meta name='generator' content='x3d-tidy V3.0.3, https://www.npmjs.com/package/x3d-tidy'/>
-    <meta name='modified' content='Sat, 21 Feb 2026 22:02:00 GMT'/>
+    <meta name='generator' content='x3d-tidy V3.0.18, https://www.npmjs.com/package/x3d-tidy'/>
+    <meta name='modified' content='Tue, 26 May 2026 08:10:17 GMT'/>
   </head>
   <Scene>
     <Background
@@ -12,7 +12,7 @@
     <OrthoViewpoint
         position='0.105 -0.105 10'
         centerOfRotation='0.105 -0.105 0'
-        fieldOfView='NaN NaN NaN NaN'>
+        fieldOfView='-0.105 -0.105 0.105 0.105'>
       <NavigationInfo containerField='navigationInfo'
           type='"PLANE", "PLANE_create3000.github.io", "EXAMINE", "ANY"'/>
     </OrthoViewpoint>

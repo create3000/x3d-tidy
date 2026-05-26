@@ -17,7 +17,7 @@
         },
         {
           "@name": "generator",
-          "@content": "x3d-tidy V3.0.3, https://www.npmjs.com/package/x3d-tidy"
+          "@content": "x3d-tidy V3.0.18, https://www.npmjs.com/package/x3d-tidy"
         },
         {
           "@name": "generator",
@@ -25,7 +25,7 @@
         },
         {
           "@name": "modified",
-          "@content": "Sat, 21 Feb 2026 22:02:10 GMT"
+          "@content": "Tue, 26 May 2026 08:10:31 GMT"
         }
       ]
     },
