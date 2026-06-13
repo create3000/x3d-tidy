@@ -12,6 +12,7 @@ const
    fs          = require ("fs"),
    zlib        = require ("zlib"),
    colors      = require ("colors"),
+   SPZParser   = require ("x_ite-spz-parser"),
    OffParser   = require ("x_ite-off-parser"),
    DEBUG       = false;
 
