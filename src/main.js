@@ -12,9 +12,11 @@ const
    fs          = require ("fs"),
    zlib        = require ("zlib"),
    colors      = require ("colors"),
-   SPZParser   = require ("x_ite-spz-parser"),
-   OffParser   = require ("x_ite-off-parser"),
    DEBUG       = false;
+
+require ("x_ite-spz-parser/x_ite-spz-parser-123.js");
+require ("x_ite-spz-parser/x_ite-spz-parser-4.js");
+require ("x_ite-off-parser");
 
 main ();
 
