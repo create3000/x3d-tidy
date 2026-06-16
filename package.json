@@ -60,7 +60,7 @@
   "dependencies": {
     "colors": "^1.4.0",
     "x_ite": "^15.1.4",
-    "x_ite-node": "^2.0.27",
+    "x_ite-node": "^2.0.28",
     "x_ite-off-parser": "^1.0.7",
     "x_ite-sog-parser": "^1.0.3",
     "x_ite-spz-parser": "^1.1.3",
