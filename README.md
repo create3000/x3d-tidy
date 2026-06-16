@@ -79,7 +79,6 @@ Show version.
 | Wavefront OBJ    | .obj           | model/obj         |
 | STL              | .stl           | model/stl         |
 | PLY              | .ply           | model/ply         |
-| SOG              | .sog           | model/sog         |
 | SPZ              | .spz           | model/spz         |
 | OFF              | .off           | model/off         |
 | SVG Document     | .svg, .svgz    | image/svg+xml     |
