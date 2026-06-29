@@ -13,7 +13,7 @@ module .exports = function inferProfileAndComponents (scene)
 
    setProfile    (scene, profileAndComponents .profile);
    setComponents (scene, profileAndComponents .components);
-}
+};
 
 function getUsedComponents (scene)
 {
