@@ -62,15 +62,18 @@
     "x_ite": "^15.1.12",
     "x_ite-node": "^2.0.34",
     "x_ite-off-parser": "^1.2.4",
-    "x_ite-sog-parser": "^2.0.0",
+    "x_ite-sog-parser": "^2.0.1",
     "x_ite-spz-parser": "^2.0.0",
     "x3d-traverse": "^2.0.1",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.6.0",
+    "eslint": "^10.7.0",
     "globals": "^17.7.0",
     "shell-tools": "^1.1.9"
+  },
+  "allowScripts": {
+    "skia-canvas@3.0.8": true
   }
 }
