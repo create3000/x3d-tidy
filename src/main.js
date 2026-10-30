@@ -18,6 +18,7 @@ require ("x_ite-sog-parser");
 require ("x_ite-spz-parser/x_ite-spz-parser-123.js");
 require ("x_ite-spz-parser/x_ite-spz-parser-4.js");
 require ("x_ite-off-parser");
+require ("x_ite-vrml1-parser");
 
 main ();
 

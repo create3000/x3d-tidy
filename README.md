@@ -74,6 +74,7 @@ Show version.
 | X3D JSON         | .x3dj, .x3djz  | model/x3d+json    |
 | X3D Classic VRML | .x3dv, .x3dvz  | model/x3d+vrml    |
 | VRML 2.0         | .wrl, .wrz     | model/vrml        |
+| VRML 1.0         | .wrl, .vrml    | model/vrml        |
 | glTF             | .gltf, .glb    | model/gltf+json   |
 | VRM              | .vrm           | model/vrm         |
 | Wavefront OBJ    | .obj           | model/obj         |
